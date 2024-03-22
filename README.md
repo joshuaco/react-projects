@@ -1,3 +1,5 @@
+<div align="center">
+
 ![_bb063de8-e0a2-4440-82f8-5488b408c61a](https://github.com/joshuaco/react-projects/assets/9096557/12fdb39c-d8ee-4669-b125-42fc934c70d2)
 
 
