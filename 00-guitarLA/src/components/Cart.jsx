@@ -1,9 +1,12 @@
 import { useMemo } from "react";
 
-function Cart({ cart, setCart }) {
-  const MAX_ITEMS = 5;
-  const MIN_ITEMS = 1;
-
+function Cart({
+  cart,
+  deleteItem,
+  increaseQuantity,
+  decreaseQuantity,
+  cleanCart,
+}) {
   // Derivate State
   const hasSomething = useMemo(() => cart.length > 0, [cart]);
 
@@ -11,37 +14,6 @@ function Cart({ cart, setCart }) {
     () => cart.reduce((total, item) => total + item.quantity * item.price, 0),
     [cart]
   );
-
-  const handleDelete = (id) => {
-    const updatedCart = cart.filter((item) => item.id !== id);
-    setCart(updatedCart);
-  };
-
-  const handleIncrease = (id) => {
-    const updatedCart = cart.map((item) => {
-      if (item.id === id && item.quantity < MAX_ITEMS) {
-        return { ...item, quantity: item.quantity + 1 }; // quantity++ doesn't work
-      }
-      return item;
-    });
-
-    setCart(updatedCart);
-  };
-
-  const handleDecrease = (id) => {
-    const updatedCart = cart.map((item) => {
-      if (item.id === id && item.quantity > MIN_ITEMS) {
-        return { ...item, quantity: item.quantity - 1 };
-      }
-      return item;
-    });
-
-    setCart(updatedCart);
-  };
-
-  const cleanCart = () => {
-    setCart([]);
-  };
 
   return (
     <nav className="col-md-6 a mt-5 d-flex align-items-start justify-content-end">
@@ -81,7 +53,7 @@ function Cart({ cart, setCart }) {
                         <button
                           type="button"
                           className="btn btn-dark"
-                          onClick={() => handleDecrease(guitar.id)}
+                          onClick={() => decreaseQuantity(guitar.id)}
                         >
                           -
                         </button>
@@ -89,7 +61,7 @@ function Cart({ cart, setCart }) {
                         <button
                           type="button"
                           className="btn btn-dark"
-                          onClick={() => handleIncrease(guitar.id)}
+                          onClick={() => increaseQuantity(guitar.id)}
                         >
                           +
                         </button>
@@ -98,7 +70,7 @@ function Cart({ cart, setCart }) {
                         <button
                           className="btn btn-danger"
                           type="button"
-                          onClick={() => handleDelete(guitar.id)}
+                          onClick={() => deleteItem(guitar.id)}
                         >
                           X
                         </button>
