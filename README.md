@@ -1,11 +1,11 @@
-# React Projects
+# React Projects 🚀
 
 ## Description
 
 This repository contains projects created with React using vite, pnpm, React Query, TailwindCSS and TypeScript.
 
-## Contents
+## Projects ⌨️
 
-### Projects
-
-- [00-guitarLA](00-guitarLA)
+| Number | Project                                          | Website                                                |
+| ------ | ------------------------------------------------ | ------------------------------------------------------ |
+| `0`    | [GuitarLA](https://github.com/joshuaco/GuitarLA) | [GuitarLA](https://peaceful-torte-1f1ae9.netlify.app/) |
