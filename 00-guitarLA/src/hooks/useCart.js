@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect } from "react";
 
 export const useCart = () => {
   const MAX_ITEMS = 5;
