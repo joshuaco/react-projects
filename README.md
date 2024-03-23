@@ -2,13 +2,13 @@
 
 ![_bb063de8-e0a2-4440-82f8-5488b408c61a](https://github.com/joshuaco/react-projects/assets/9096557/12fdb39c-d8ee-4669-b125-42fc934c70d2)
 
-
 # 🚀 React Projects
 
 This repository contains projects created with React using vite, pnpm, React Query, TailwindCSS and TypeScript.
 
 ## ⌨️ Projects
 
-| Number  | Project                 | Website                                                  |
-| ------- | ----------------------- | -------------------------------------------------------- |
-| `00`    | [GuitarLA](00-guitarLA) | [Go to Site](https://peaceful-torte-1f1ae9.netlify.app/) |
+| Number | Project                             | Website                                                  |
+| ------ | ----------------------------------- | -------------------------------------------------------- |
+| `00`   | [GuitarLA](00-guitarLA)             | [Go to Site](https://peaceful-torte-1f1ae9.netlify.app/) |
+| `00b`  | [GuitarLA With TS](00b-guitarLA-ts) | [Go to Site](https://peaceful-torte-1f1ae9.netlify.app/) |
