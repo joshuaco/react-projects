@@ -1,4 +1,4 @@
-import Guitar from "./Guitar";
+import Item from "./Item";
 
 import type { Guitar } from "../types";
 
@@ -14,7 +14,7 @@ function Content({ data, addToCart }: ContentProps) {
 
       <section className="row mt-5">
         {data.map((guitar) => (
-          <Guitar key={guitar.id} guitar={guitar} addToCart={addToCart} />
+          <Item key={guitar.id} guitar={guitar} addToCart={addToCart} />
         ))}
       </section>
     </main>
