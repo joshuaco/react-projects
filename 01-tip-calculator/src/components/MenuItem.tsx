@@ -1,9 +1,23 @@
-/* TODO: Fix the children prop type */
-function MenuItem({ children }) {
+import type { MenuItem } from "../types";
+
+type MenuItemProps = {
+  item: MenuItem;
+  addItem: (item: MenuItem) => void;
+};
+
+function MenuItem({ item, addItem }: MenuItemProps) {
   return (
-    <article>
-      <p>Item # {children}</p>
-    </article>
+    <button
+      className="w-full border-2 border-gray-300 hover:bg-gray-200 rounded flex justify-between py-3
+       px-5 items-center"
+      onClick={() => addItem(item)}
+    >
+      <div className="flex items-center gap-3">
+        <img src={`/svg/${item.img}.svg`} alt={item.img} />
+        <span>{item.name}</span>
+      </div>
+      <p className="font-bold text-blue-950">${item.price}</p>
+    </button>
   );
 }
 
