@@ -1,21 +1,23 @@
-import { useState } from "react";
-import { TURNS } from "./constants";
-import { checkGameOver, checkWinner } from "./logic/board";
-import { resetGameStorage, saveGameToStorage } from "./logic/storage";
-import confetti from "canvas-confetti";
+import { useState } from 'react';
+import { TURNS } from './constants';
+import { checkGameOver, checkWinner } from './logic/board';
+import { resetGameStorage, saveGameToStorage } from './logic/storage';
+import confetti from 'canvas-confetti';
 
-import Square from "./components/Square";
-import WinnerModal from "./components/WinnerModal";
+import Square from './components/Square';
+import WinnerModal from './components/WinnerModal';
 
 function App() {
   const [board, setBoard] = useState(() => {
-    return JSON.parse(localStorage.getItem("board")) || Array(9).fill(null);
+    return JSON.parse(localStorage.getItem('board')) || Array(9).fill(null);
   });
+
   const [turn, setTurn] = useState(() => {
-    return localStorage.getItem("turn") || TURNS.X;
+    return localStorage.getItem('turn') || TURNS.X;
   });
+
   const [winner, setWinner] = useState(() => {
-    return localStorage.getItem("winner") || null;
+    return localStorage.getItem('winner') || null;
   });
 
   const updateBoard = (index) => {

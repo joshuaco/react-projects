@@ -1,10 +1,10 @@
-import Square from "./Square";
+import Square from './Square';
 
 function WinnerModal({ winner, reset }) {
   return (
     <section className="winner">
       <div className="text">
-        <h2>{winner === false ? "Empate" : "Ganó"}</h2>
+        <h2>{winner === false ? 'Empate' : 'Ganó'}</h2>
 
         {winner && (
           <header className="win">
