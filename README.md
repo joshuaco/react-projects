@@ -10,8 +10,8 @@ This repository contains projects created with React using vite, pnpm, React Que
 
 | Number | Project                             | Website                                                        |
 | ------ | ----------------------------------- | ---------------------------------------------------------------|
-| `00`   | [GuitarLA](00-guitarLA)             | [Go to Site](https://peaceful-torte-1f1ae9.netlify.app/)       |
-| `00b`  | [GuitarLA With TS](00b-guitarLA-ts) | [Go to Site](https://peaceful-torte-1f1ae9.netlify.app/)       |
-| `01`   | [Tip Calculator](01-tip-calculator) | [Go to Site](https://flourishing-moonbeam-eaa2f3.netlify.app/) |
-| `02`   | [Tic-Tac-Toe](02-tic-tac-toe)       | [Go to Site](https://lively-meringue-14ffbf.netlify.app/)      |
-| `03`   | [Technical Test](03-technical-test) | [Go to Site](https://lustrous-dodol-e63736.netlify.app/)       |
+| `01`   | [GuitarLA](00-guitarLA)             | [Go to Site](https://peaceful-torte-1f1ae9.netlify.app/)       |
+| `01b`  | [GuitarLA With TS](00b-guitarLA-ts) | [Go to Site](https://peaceful-torte-1f1ae9.netlify.app/)       |
+| `02`   | [Tip Calculator](01-tip-calculator) | [Go to Site](https://flourishing-moonbeam-eaa2f3.netlify.app/) |
+| `03`   | [Tic-Tac-Toe](02-tic-tac-toe)       | [Go to Site](https://lively-meringue-14ffbf.netlify.app/)      |
+| `04`   | [Technical Test](03-technical-test) | [Go to Site](https://lustrous-dodol-e63736.netlify.app/)       |
