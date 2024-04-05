@@ -1,4 +1,4 @@
-import { useState, ChangeEvent } from 'react';
+import { useState, ChangeEvent, FormEvent } from 'react';
 import { categories } from '../data/category';
 import type { Activity } from '../types';
 
@@ -6,7 +6,7 @@ function Form() {
   const [activity, setActivity] = useState<Activity>({
     category: 1,
     name: '',
-    calories: 0,
+    calories: 0
   });
 
   const handleChange = (
@@ -16,17 +16,25 @@ function Form() {
 
     setActivity({
       ...activity,
-      [e.target.id]: isNumberField ? +e.target.value : e.target.value.trim(),
+      [e.target.id]: isNumberField ? +e.target.value : e.target.value.trim()
     });
   };
 
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    console.log('submit');
+  };
+
   const isValidActivity = () => {
-    console.log(activity.name.trim() !== '');
     return activity.name.trim() !== '' && activity.calories > 0;
   };
 
   return (
-    <form className="space-y-5 bg-white rounded shadow p-10">
+    <form
+      className="space-y-5 bg-white rounded shadow p-10"
+      onSubmit={handleSubmit}
+    >
       <div className="grid grid-cols-1 gap-3">
         <label className="text-xl font-bold" htmlFor="category">
           Category:
@@ -52,7 +60,7 @@ function Form() {
         <input
           type="text"
           id="name"
-          className="border border-slate-300 rounded p-2 outline-lime-900"
+          className="border border-slate-300 rounded p-2 outline-amber-800"
           placeholder="Ex. Food, Orange Juice, Salad, Training, Lifting, Running"
           value={activity.name}
           onChange={handleChange}
@@ -66,7 +74,7 @@ function Form() {
         <input
           type="number"
           id="calories"
-          className="border border-slate-300 rounded p-2 outline-lime-900"
+          className="border border-slate-300 rounded p-2 outline-amber-800"
           placeholder="Ex. 500, 350, 100"
           value={activity.calories}
           onChange={handleChange}
