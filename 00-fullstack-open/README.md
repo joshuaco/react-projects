@@ -1,9 +1,11 @@
+<div align="center">
+<img src="https://github.com/joshuaco/react-projects/assets/9096557/a8c82e4c-5fc7-4565-bb48-3cd059f18625" width="200" />
+</div>
+
 # FullStack Open Projects
 
 ## 01-courses
 
 ## 02-phonebook
-
-### To get started, check out the [README](./01-courses/README.md) and [README](./02-phonebook/README.md)
 
 ## API for [currencies](https://open.er-api.com/v6/latest/ves) https://open.er-api.com/v6/latest/ves
