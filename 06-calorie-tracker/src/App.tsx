@@ -1,6 +1,10 @@
+import { useReducer } from 'react';
+import { activityReducer, initialState } from './reducers/activity-reducer';
+
 import Form from './components/Form';
 
 function App() {
+  const [, dispatch] = useReducer(activityReducer, initialState);
   return (
     <>
       <header className="py-6">
@@ -13,7 +17,7 @@ function App() {
 
       <section className="bg-amber-600 py-12 px-5">
         <div className="max-w-4xl mx-auto">
-          <Form />
+          <Form dispatch={dispatch} />
         </div>
       </section>
     </>
