@@ -40,25 +40,29 @@ function App() {
       <header>
         <h1>Movie Search</h1>
         <form onSubmit={handleSubmit}>
-          <input
-            type="text"
-            name="query"
-            id="query"
-            placeholder="Avengers, Rocky IV..."
-            style={{
-              border: `1px solid ${error ? 'red' : 'transparent'}`
-            }}
-            value={search}
-            onChange={handleChange}
-          />
-          <button type="submit">Search</button>
-          <input
-            type="checkbox"
-            onChange={handleSort}
-            checked={sort}
-            id="sort"
-          />
-          <label htmlFor="sort">Sort by Title</label>
+          <div className="form-control">
+            <input
+              type="text"
+              name="query"
+              id="query"
+              placeholder="Avengers, Rocky IV..."
+              style={{
+                border: `1px solid ${error ? 'red' : 'transparent'}`
+              }}
+              value={search}
+              onChange={handleChange}
+            />
+            <button type="submit">Search</button>
+          </div>
+          <div>
+            <input
+              type="checkbox"
+              onChange={handleSort}
+              checked={sort}
+              id="sort"
+            />
+            <label htmlFor="sort">Sort by Title</label>
+          </div>
         </form>
         {error && <p style={{ color: 'red' }}>{error}</p>}
       </header>
