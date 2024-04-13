@@ -1,22 +1,14 @@
-import Cart from "./Cart";
+import Cart from './Cart';
 
-import type { CartItem, Guitar } from "../types";
+import type { CartItem } from '../types';
+import { CartActions } from '../reducers/cart-reducer';
 
 type HeaderProps = {
   cart: CartItem[];
-  deleteItem: (id: Guitar["id"]) => void;
-  increaseQuantity: (id: Guitar["id"]) => void;
-  decreaseQuantity: (id: Guitar["id"]) => void;
-  cleanCart: () => void;
+  dispatch: React.Dispatch<CartActions>;
 };
 
-function Header({
-  cart,
-  deleteItem,
-  increaseQuantity,
-  decreaseQuantity,
-  cleanCart,
-}: HeaderProps) {
+function Header({ cart, dispatch }: HeaderProps) {
   return (
     <header className="py-5 header">
       <div className="container-xl">
@@ -30,13 +22,7 @@ function Header({
               />
             </a>
           </div>
-          <Cart
-            cart={cart}
-            deleteItem={deleteItem}
-            increaseQuantity={increaseQuantity}
-            decreaseQuantity={decreaseQuantity}
-            cleanCart={cleanCart}
-          />
+          <Cart cart={cart} dispatch={dispatch} />
         </div>
       </div>
     </header>

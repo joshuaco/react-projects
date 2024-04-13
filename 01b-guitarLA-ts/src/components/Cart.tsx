@@ -1,22 +1,14 @@
-import { useMemo } from "react";
+import { useMemo, Dispatch } from 'react';
 
-import type { CartItem, Guitar } from "../types";
+import type { CartItem } from '../types';
+import { CartActions } from '../reducers/cart-reducer';
 
 type CartProps = {
   cart: CartItem[];
-  deleteItem: (id: Guitar["id"]) => void;
-  increaseQuantity: (id: Guitar["id"]) => void;
-  decreaseQuantity: (id: Guitar["id"]) => void;
-  cleanCart: () => void;
+  dispatch: Dispatch<CartActions>;
 };
 
-function Cart({
-  cart,
-  deleteItem,
-  increaseQuantity,
-  decreaseQuantity,
-  cleanCart,
-}: CartProps) {
+function Cart({ cart, dispatch }: CartProps) {
   // Derivate State
   const hasSomething = useMemo(() => cart.length > 0, [cart]);
 
@@ -63,7 +55,12 @@ function Cart({
                         <button
                           type="button"
                           className="btn btn-dark"
-                          onClick={() => decreaseQuantity(guitar.id)}
+                          onClick={() =>
+                            dispatch({
+                              type: 'decrease-quantity',
+                              payload: { id: guitar.id }
+                            })
+                          }
                         >
                           -
                         </button>
@@ -71,7 +68,12 @@ function Cart({
                         <button
                           type="button"
                           className="btn btn-dark"
-                          onClick={() => increaseQuantity(guitar.id)}
+                          onClick={() =>
+                            dispatch({
+                              type: 'increase-quantity',
+                              payload: { id: guitar.id }
+                            })
+                          }
                         >
                           +
                         </button>
@@ -80,7 +82,12 @@ function Cart({
                         <button
                           className="btn btn-danger"
                           type="button"
-                          onClick={() => deleteItem(guitar.id)}
+                          onClick={() =>
+                            dispatch({
+                              type: 'delete-item',
+                              payload: { id: guitar.id }
+                            })
+                          }
                         >
                           X
                         </button>
@@ -95,7 +102,7 @@ function Cart({
               </p>
               <button
                 className="btn btn-dark w-100 mt-3 p-2"
-                onClick={cleanCart}
+                onClick={() => dispatch({ type: 'clean-cart' })}
               >
                 Vaciar Carrito
               </button>

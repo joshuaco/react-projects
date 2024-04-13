@@ -1,32 +1,25 @@
-import { useState } from "react";
-import { useCart } from "./hooks/useCart";
-import { db } from "./data/db";
+import { useEffect, useReducer } from 'react';
+import { cartReducer, initialState } from './reducers/cart-reducer';
 
-import Header from "./components/Header";
-import Content from "./components/Content";
-import Footer from "./components/Footer";
+import Header from './components/Header';
+import Content from './components/Content';
+import Footer from './components/Footer';
 
 function App() {
-  const [data] = useState(db);
-  const {
-    cart,
-    addToCart,
-    deleteItem,
-    increaseQuantity,
-    decreaseQuantity,
-    cleanCart,
-  } = useCart();
+  const [state, dispatch] = useReducer(cartReducer, initialState);
+
+  useEffect(() => {
+    if (state.cart.length > 0) {
+      localStorage.setItem('cart', JSON.stringify(state.cart));
+      return;
+    }
+    localStorage.removeItem('cart');
+  }, [state.cart]);
 
   return (
     <>
-      <Header
-        cart={cart}
-        deleteItem={deleteItem}
-        increaseQuantity={increaseQuantity}
-        decreaseQuantity={decreaseQuantity}
-        cleanCart={cleanCart}
-      />
-      <Content data={data} addToCart={addToCart} />
+      <Header cart={state.cart} dispatch={dispatch} />
+      <Content data={state.data} dispatch={dispatch} />
       <Footer />
     </>
   );

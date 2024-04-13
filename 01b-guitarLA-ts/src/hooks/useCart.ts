@@ -1,12 +1,13 @@
-import { useState, useEffect } from "react";
-import { Guitar, CartItem } from "../types";
+/* eslint-disable react-hooks/exhaustive-deps */
+import { useState, useEffect } from 'react';
+import { Guitar, CartItem } from '../types';
 
 export const useCart = () => {
   const MAX_ITEMS = 5;
   const MIN_ITEMS = 1;
 
   const [cart, setCart] = useState((): CartItem[] => {
-    return JSON.parse(localStorage.getItem("cart")!) ?? [];
+    return JSON.parse(localStorage.getItem('cart')!) ?? [];
   });
 
   useEffect(() => {
@@ -15,10 +16,10 @@ export const useCart = () => {
 
   const saveToLocalStorage = () => {
     if (cart.length > 0) {
-      localStorage.setItem("cart", JSON.stringify(cart));
+      localStorage.setItem('cart', JSON.stringify(cart));
       return;
     }
-    localStorage.removeItem("cart");
+    localStorage.removeItem('cart');
   };
 
   const addToCart = (item: Guitar) => {
@@ -36,12 +37,12 @@ export const useCart = () => {
   };
 
   // Guitar['id'] <- LookUp
-  const deleteItem = (id: Guitar["id"]) => {
+  const deleteItem = (id: Guitar['id']) => {
     const updatedCart = cart.filter((item: CartItem) => item.id !== id);
     setCart(updatedCart);
   };
 
-  const increaseQuantity = (id: Guitar["id"]) => {
+  const increaseQuantity = (id: Guitar['id']) => {
     const updatedCart = cart.map((item: CartItem) => {
       if (item.id === id && item.quantity < MAX_ITEMS) {
         return { ...item, quantity: item.quantity + 1 }; // quantity++ doesn't work
@@ -52,7 +53,7 @@ export const useCart = () => {
     setCart(updatedCart);
   };
 
-  const decreaseQuantity = (id: Guitar["id"]) => {
+  const decreaseQuantity = (id: Guitar['id']) => {
     const updatedCart = cart.map((item) => {
       if (item.id === id && item.quantity > MIN_ITEMS) {
         return { ...item, quantity: item.quantity - 1 };
@@ -73,6 +74,6 @@ export const useCart = () => {
     deleteItem,
     increaseQuantity,
     decreaseQuantity,
-    cleanCart,
+    cleanCart
   };
 };

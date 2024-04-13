@@ -1,15 +1,16 @@
-import type { Guitar } from "../types";
+import { CartActions } from '../reducers/cart-reducer';
+import type { Guitar } from '../types';
 
 type ItemProps = {
   guitar: Guitar;
-  addToCart: (item: Guitar) => void;
+  dispatch: React.Dispatch<CartActions>;
 };
 
-function Item({ guitar, addToCart }: ItemProps) {
+function Item({ guitar, dispatch }: ItemProps) {
   const { name, description, price, image } = guitar;
 
   const handleClick = () => {
-    addToCart(guitar);
+    dispatch({ type: 'add-to-cart', payload: { item: guitar } });
   };
 
   return (
