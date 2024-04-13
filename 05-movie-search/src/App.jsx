@@ -52,7 +52,9 @@ function App() {
               value={search}
               onChange={handleChange}
             />
-            <button type="submit">Search</button>
+            <button className="submit-button" type="submit">
+              Search
+            </button>
           </div>
           <div>
             <input
