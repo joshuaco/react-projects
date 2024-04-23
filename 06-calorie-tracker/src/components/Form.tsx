@@ -104,7 +104,7 @@ function Form() {
 
       <input
         type="submit"
-        className="bg-amber-700 hover:bg-amber-900 w-full p-2 font-bold uppercase text-slate-50 rounded cursor-pointer disabled:opacity-10 disabled:cursor-default"
+        className="bg-amber-700 hover:bg-amber-900 w-full p-2 font-bold uppercase text-slate-50 rounded cursor-pointer disabled:opacity-40 disabled:cursor-default"
         value={activity.category === 1 ? 'Save Food' : 'Save Routine'}
         disabled={!isValidActivity()}
       />
