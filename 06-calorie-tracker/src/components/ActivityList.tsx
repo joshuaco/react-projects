@@ -1,15 +1,12 @@
-import { Dispatch, useMemo } from 'react';
-import { Activity } from '../types';
+import { useMemo } from 'react';
+import { useActivity } from '../hooks/useActivity';
 import { categories } from '../data/category';
-import { ActivityActions } from '../reducers/activity-reducer';
+import { Activity } from '../types';
 import ActivityInfo from './ActivityInfo';
 
-type ActivityListProps = {
-  activities: Activity[];
-  dispatch: Dispatch<ActivityActions>;
-};
-
-function ActivityList({ activities, dispatch }: ActivityListProps) {
+function ActivityList() {
+  const { state, dispatch } = useActivity();
+  const { activities } = state;
   const hasActivity = activities.length > 0;
 
   const categoryName = useMemo(

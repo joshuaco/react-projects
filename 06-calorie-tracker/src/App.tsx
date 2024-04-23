@@ -1,12 +1,12 @@
-import { useEffect, useMemo, useReducer } from 'react';
-import { activityReducer, initialState } from './reducers/activity-reducer';
+import { useEffect, useMemo } from 'react';
 
 import Form from './components/Form';
 import ActivityList from './components/ActivityList';
 import CalorieTracker from './components/CalorieTracker';
+import { useActivity } from './hooks/useActivity';
 
 function App() {
-  const [state, dispatch] = useReducer(activityReducer, initialState);
+  const { state, dispatch } = useActivity();
 
   useEffect(() => {
     if (state.activities.length > 0) {
@@ -27,7 +27,7 @@ function App() {
           </h1>
 
           <button
-            className="bg-amber-600 text-white px-4 py-2 rounded font-bold disabled:opacity-10"
+            className="bg-amber-600 text-white px-4 py-2 rounded font-bold disabled:opacity-40"
             disabled={!canRestart}
             onClick={() => dispatch({ type: 'restart-app' })}
           >
@@ -38,18 +38,18 @@ function App() {
 
       <section className="bg-amber-600 py-12 px-5">
         <div className="max-w-4xl mx-auto">
-          <Form dispatch={dispatch} state={state} />
+          <Form />
         </div>
       </section>
 
       <section className="bg-slate-800 py-10">
         <div className="max-w-4xl mx-auto px-5">
-          <CalorieTracker activities={state.activities} />
+          <CalorieTracker />
         </div>
       </section>
 
       <section className="p-10 mx-auto max-w-4xl">
-        <ActivityList activities={state.activities} dispatch={dispatch} />
+        <ActivityList />
       </section>
     </>
   );
