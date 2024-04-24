@@ -1,10 +1,15 @@
-import './App.css';
+import { products } from './mocks/products.json';
+import Products from './components/Products';
 
 function App() {
   return (
-    <>
-      <h1>Hello There!</h1>
-    </>
+    <div className="app">
+      <header>
+        <h1>eCommerce Store 🛒</h1>
+      </header>
+
+      <Products products={products} />
+    </div>
   );
 }
 
