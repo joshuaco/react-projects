@@ -18,4 +18,4 @@ This repository contains projects created with React using vite, pnpm, React Que
 | `05`   | [Movie Search](05-movie-search)     | [Go to Site](https://luxury-druid-b1d3fc.netlify.app/)         |
 | `06`   | [Calorie Tracker](06-calorie-tracker) | [Go to Site](https://merry-lolly-835713.netlify.app/)        |
 | `07`   | [Expense Tracker](07-budget-management) | [Go to Site](https://hilarious-cucurucho-947768.netlify.app/) |
-| `07`   | [E-commerce](08-ecommerce)          | [Go to Site](https://stellar-pixie-ddbedd.netlify.app/)        |
+| `08`   | [E-commerce](08-ecommerce)          | [Go to Site](https://stellar-pixie-ddbedd.netlify.app/)        |
