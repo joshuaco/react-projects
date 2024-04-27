@@ -1,0 +1,11 @@
+.footer {
+  position: fixed;
+  left: 16px;
+  bottom: 16px;
+  text-align: left;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 8px 24px;
+  border-radius: 32px;
+  opacity: 0.9;
+  backdrop-filter: blur(8px);
+}

@@ -1,17 +1,18 @@
-import { useState } from 'react';
-import { products as initialProducts } from './mocks/products.json';
 import Products from './components/Products';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import Cart from './components/Cart';
+import { CartProvider } from './context/CartContext';
 
 function App() {
-  const [products] = useState(initialProducts);
-
   return (
     <div className="app">
-      <header>
-        <h1>React Shop 🛒</h1>
-      </header>
-
-      <Products products={products} />
+      <Header />
+      <CartProvider>
+        <Cart />
+        <Products />
+      </CartProvider>
+      <Footer />
     </div>
   );
 }

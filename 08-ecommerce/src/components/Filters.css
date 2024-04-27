@@ -1,0 +1,11 @@
+.filters {
+  display: flex;
+  justify-content: space-evenly;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.filters > div {
+  display: flex;
+  gap: 5px;
+}

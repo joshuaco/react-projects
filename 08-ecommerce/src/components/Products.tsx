@@ -1,16 +1,21 @@
+import { useFilter } from '../hooks/useFilter';
+import { useCart } from '../hooks/useCart';
+import { AddToCartIcon, RemoveFromCartIcon } from './Icons';
 import { Product } from '../types';
-import { AddToCartIcon } from './Icons';
 import './Products.css';
 
-type ProductsProps = {
-  products: Product[];
-};
+function Products() {
+  const { filteredProducts } = useFilter();
+  const { state, dispatch } = useCart();
 
-function Products({ products }: ProductsProps) {
+  const isProductInCart = (product: Product) => {
+    return state.products.some((p) => p.id === product.id);
+  };
+
   return (
     <main className="products">
       <ul>
-        {products.slice(0, 10).map((product) => (
+        {filteredProducts.map((product) => (
           <li key={product.id}>
             <img src={product.thumbnail} alt={product.title} />
             <div>
@@ -18,8 +23,24 @@ function Products({ products }: ProductsProps) {
               <span>${product.price}</span>
             </div>
             <div>
-              <button>
-                <AddToCartIcon />
+              <button
+                onClick={() =>
+                  isProductInCart(product)
+                    ? dispatch({
+                        type: 'REMOVE_FROM_CART',
+                        payload: product.id
+                      })
+                    : dispatch({
+                        type: 'ADD_TO_CART',
+                        payload: product
+                      })
+                }
+              >
+                {isProductInCart(product) ? (
+                  <RemoveFromCartIcon />
+                ) : (
+                  <AddToCartIcon />
+                )}
               </button>
             </div>
           </li>
