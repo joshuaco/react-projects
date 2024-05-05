@@ -19,4 +19,5 @@ This repository contains projects created with React using vite, pnpm, React Que
 | `06`   | [Calorie Tracker](06-calorie-tracker) | ![Static Badge](https://img.shields.io/badge/TypeScript-blue) | [Go to Site](https://merry-lolly-835713.netlify.app/)        |
 | `07`   | [Expense Tracker](07-budget-management) | ![Static Badge](https://img.shields.io/badge/TypeScript-blue) | [Go to Site](https://hilarious-cucurucho-947768.netlify.app/) |
 | `08`   | [E-commerce](08-ecommerce)          | ![Static Badge](https://img.shields.io/badge/TypeScript-blue) | [Go to Site](https://stellar-pixie-ddbedd.netlify.app/)        |
-| `08`   | [patient-manager](09-patient-manager) | ![Static Badge](https://img.shields.io/badge/TypeScript-blue) | [Go to Site](https://marvelous-unicorn-cb6a02.netlify.app/)  |
+| `09`   | [Patient Manager](09-patient-manager) | ![Static Badge](https://img.shields.io/badge/TypeScript-blue) | [Go to Site](https://marvelous-unicorn-cb6a02.netlify.app/)  |
+| `10`   | [Weather app](10-weather-app)       | ![Static Badge](https://img.shields.io/badge/TypeScript-blue)   | [Go to Site](https://bright-lollipop-5891a7.netlify.app/)    |
