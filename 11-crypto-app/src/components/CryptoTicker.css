@@ -1,0 +1,62 @@
+.stock-ticker {
+  font-size: 1.5rem;
+  padding-block: 8px; /* top-bottom padding */
+  border-block: 1px solid; /* top-bottom border */
+  display: flex;
+  gap: 20px;
+  overflow: hidden;
+  user-select: none;
+}
+
+.stock-ticker ul {
+  list-style: none;
+  display: flex;
+  flex-shrink: 0;
+  justify-content: space-between;
+  align-items: center;
+  min-width: 100%;
+  gap: 20px;
+
+  animation: scroll 40s linear infinite;
+}
+
+/* Hover */
+.stock-ticker:hover ul {
+  animation-play-state: paused;
+}
+
+@keyframes scroll {
+  to {
+    transform: translateX(calc(-100% - 20px));
+  }
+}
+
+.stock-ticker .crypto,
+.stock-ticker .price {
+  font-weight: bold;
+  color: white;
+}
+
+.stock-ticker .price {
+  margin-inline: 4px;
+}
+
+.stock-ticker .change {
+  font-weight: 600;
+}
+
+.positive {
+  color: limegreen;
+}
+
+.positive::before {
+  content: '↑';
+}
+
+.negative {
+  color: tomato;
+}
+
+.negative::before {
+  content: '↓';
+}
