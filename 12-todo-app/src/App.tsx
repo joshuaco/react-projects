@@ -1,41 +1,30 @@
-import { useState } from 'react';
-import { mockTodos } from './mocks';
+import { useTodoStore } from './store';
 import Todos from './components/Todos';
 import Footer from './components/Footer';
-import type { Todos as TodoList } from './types';
+import Header from './components/Header';
+import { useEffect } from 'react';
 
 function App() {
-  const [todos, setTodos] = useState(mockTodos);
+  const { initTodos, filteredTodos } = useTodoStore();
 
-  const handleDelete = (id: TodoList['id']) => {
-    const newTodos = todos.filter((todo) => todo.id !== id);
-    setTodos(newTodos);
-  };
+  useEffect(() => {
+    initTodos();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
-  const handleCompleted = (id: TodoList['id']) => {
-    const newTodos = todos.map((todo) => {
-      if (todo.id === id) {
-        return {
-          ...todo,
-          completed: !todo.completed
-        };
-      }
-      return todo;
-    });
-    setTodos(newTodos);
-  };
+  const todos = filteredTodos();
 
   return (
-    <div className="todoapp">
-      <main className="main">
-        <Todos
-          todos={todos}
-          onDelete={handleDelete}
-          onToggleCompleted={handleCompleted}
-        />
-      </main>
-      <Footer todos={todos} />
-    </div>
+    <>
+      <div className="todoapp">
+        <Header />
+        <main className="main">
+          <Todos todos={todos} />
+        </main>
+        <Footer />
+      </div>
+      {todos.length > 0 && <p className="info">Double click to edit a todo</p>}
+    </>
   );
 }
 

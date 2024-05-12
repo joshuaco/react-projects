@@ -1,19 +1,27 @@
-import { Todos } from '../types';
+import { useTodoStore } from '../store';
+import Filters from './Filters';
 
-type FooterProps = {
-  todos: Todos[];
-};
-
-function Footer({ todos }: FooterProps) {
-  const todosLeft = todos.filter((todo) => !todo.completed);
+function Footer() {
+  const todoList = useTodoStore((state) => state.todos);
+  const removeCompleted = useTodoStore((state) => state.removeCompleted);
+  const todosLeft = todoList.filter((todo) => !todo.completed);
+  const todosCompleted = todoList.filter((todo) => todo.completed);
 
   return (
     <footer className="footer">
       <div className="todo-count">
         <strong>{todosLeft.length} item left</strong>
       </div>
-      <div className="filters"></div>
-      <div className="clear-completed"></div>
+
+      <Filters />
+
+      <div>
+        {todosCompleted.length > 0 && (
+          <button className="clear-completed" onClick={removeCompleted}>
+            Clear completed
+          </button>
+        )}
+      </div>
     </footer>
   );
 }

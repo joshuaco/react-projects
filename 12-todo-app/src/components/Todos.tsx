@@ -1,22 +1,18 @@
+import { useAutoAnimate } from '@formkit/auto-animate/react';
 import type { Todos } from '../types';
 import Todo from './Todo';
 
 type TodosProps = {
   todos: Todos[];
-  onDelete: (id: Todos['id']) => void;
-  onToggleCompleted: (id: Todos['id']) => void;
 };
 
-function Todos({ todos, onDelete, onToggleCompleted }: TodosProps) {
+function Todos({ todos }: TodosProps) {
+  const [parent] = useAutoAnimate();
+
   return (
-    <ul className="todo-list">
+    <ul className="todo-list" ref={parent}>
       {todos.map((todo) => (
-        <Todo
-          key={todo.id}
-          todo={todo}
-          onDelete={onDelete}
-          onToggleCompleted={onToggleCompleted}
-        />
+        <Todo key={todo.id} todo={todo} />
       ))}
     </ul>
   );
