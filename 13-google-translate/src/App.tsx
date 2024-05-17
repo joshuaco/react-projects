@@ -48,7 +48,7 @@ function App() {
       <Header />
 
       <Row className="mt-5">
-        <Col xs={12} sm={5}>
+        <Col xs={12} sm={true}>
           <Stack gap={2}>
             <LanguageSelector
               type={SectionType.From}
@@ -73,7 +73,7 @@ function App() {
             <ArrowsIcon />
           </Button>
         </Col>
-        <Col xs={12} sm={5}>
+        <Col xs={12} sm={true}>
           <Stack gap={2}>
             <LanguageSelector
               type={SectionType.To}
