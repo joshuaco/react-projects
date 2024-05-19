@@ -14,7 +14,7 @@ function Course({ course }) {
       </header>
 
       <main>
-        <ul>
+        <ol>
           {parts.map((part) => {
             return (
               <li key={part.id}>
@@ -24,7 +24,7 @@ function Course({ course }) {
               </li>
             );
           })}
-        </ul>
+        </ol>
         <p>
           <b>Total of {calculateTotal} exercises</b>
         </p>

@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useState, useEffect } from 'react';
 import { getAll, create, remove, update } from './services/contact';
 import Search from './components/Search';
@@ -16,7 +17,10 @@ function App() {
   useEffect(() => {
     getAll()
       .then((data) => setPersons(data))
-      .catch(() => setMessage('Error connecting to server, try again later'));
+      .catch(() => {
+        setMessage('Error connecting to server, try again later');
+        clearMessage();
+      });
   }, []);
 
   const handleNameChange = (event) => {
@@ -97,6 +101,10 @@ function App() {
     const newPersons = persons.filter((person) => person.id !== id);
     setPersons(newPersons);
     remove(id);
+  };
+
+  const clearMessage = () => {
+    setTimeout(() => setMessage(''), 3000);
   };
 
   return (
