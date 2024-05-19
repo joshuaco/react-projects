@@ -3,16 +3,20 @@ import { getAll, create, remove, update } from './services/contact';
 import Search from './components/Search';
 import ContactForm from './components/ContactForm';
 import Contacts from './components/Contacts';
+import Notification from './components/Notification';
 
 import './App.css';
 
 function App() {
+  const [message, setMessage] = useState('');
   const [persons, setPersons] = useState([]);
   const [newName, setNewName] = useState('');
   const [phone, setPhone] = useState('');
 
   useEffect(() => {
-    getAll().then((data) => setPersons(data));
+    getAll()
+      .then((data) => setPersons(data))
+      .catch(() => setMessage('Error connecting to server, try again later'));
   }, []);
 
   const handleNameChange = (event) => {
@@ -28,17 +32,18 @@ function App() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (newName === '') {
-      alert('The fields cannot be empty');
+    if (newName === '' || phone === '') {
+      setMessage('Field cannot be empty');
       return;
     }
 
+    setMessage('');
     const personExists = persons.find(
       (person) => person.name.toLowerCase() === newName.toLowerCase()
     );
 
     if (personExists && personExists.number === phone) {
-      alert(`${newName} is already added to phonebook`);
+      setMessage(`${newName} is already added to phonebook`);
       return;
     } else if (personExists) {
       const confirmed = window.confirm(
@@ -109,8 +114,12 @@ function App() {
         handleNumberChange={handleNumberChange}
       />
 
-      {persons.length > 0 && (
+      {message && <Notification message={message} />}
+
+      {persons.length > 0 ? (
         <Contacts persons={persons} deletePerson={deletePerson} />
+      ) : (
+        <p>No contacts found</p>
       )}
     </div>
   );

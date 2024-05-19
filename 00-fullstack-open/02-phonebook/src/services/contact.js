@@ -6,7 +6,8 @@ async function getAll() {
     const data = await response.json();
     return data;
   } catch (e) {
-    alert('Contacts not found');
+    throw new Error('Error connecting to server, try again later');
+    //return [];
   }
 }
 
@@ -22,7 +23,8 @@ async function create(newObject) {
     const data = await response.json();
     return data;
   } catch (e) {
-    alert('Error creating contact');
+    alert('Error connecting to server, try again later');
+    return newObject;
   }
 }
 

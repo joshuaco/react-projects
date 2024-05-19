@@ -6,9 +6,8 @@ function FilteredList({ filter }) {
     <ul>
       {filter.map((person, index) => (
         <li key={index}>
-          <p>
-            {person.name} {person.phone}
-          </p>
+          <p>{person.name}</p>
+          <p>{person.number}</p>
         </li>
       ))}
     </ul>

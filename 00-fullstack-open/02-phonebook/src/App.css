@@ -39,7 +39,18 @@ ol {
   padding: 0;
 }
 
+ul {
+  margin: 0;
+  padding: 0;
+}
+
 li {
   display: flex;
   justify-content: space-between;
+}
+
+.notification {
+  color: red;
+  margin: 16px 0;
+  font-weight: bold;
 }
