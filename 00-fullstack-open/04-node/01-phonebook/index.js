@@ -5,7 +5,12 @@ let persons = require('./data/persons');
 const app = express();
 
 app.use(express.json());
-app.use(morgan('dev'));
+
+morgan.token('body', (req) => JSON.stringify(req.body));
+
+app.use(
+  morgan(':method :url :status :res[content-length] - :response-time ms :body')
+);
 
 const requestLogger = (req, res, next) => {
   console.log('Method:', req.method);
