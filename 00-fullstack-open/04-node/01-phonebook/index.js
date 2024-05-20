@@ -1,9 +1,21 @@
 const express = require('express');
+const morgan = require('morgan');
 let persons = require('./data/persons');
 
 const app = express();
 
 app.use(express.json());
+app.use(morgan('dev'));
+
+const requestLogger = (req, res, next) => {
+  console.log('Method:', req.method);
+  console.log('Path:', req.path);
+  console.log('Body:', req.body);
+  console.log('-----');
+  next(); // Jump to the next middleware.
+};
+
+//app.use(requestLogger);
 
 // endpoints
 app.get('/', (req, res) => {
@@ -75,6 +87,12 @@ app.get('/info', (req, res) => {
     <p>${personsInfo.date.toString()}</p>
   `);
 });
+
+const unknownEndpoint = (request, response) => {
+  response.status(404).send({ error: 'unknown endpoint' });
+};
+
+app.use(unknownEndpoint);
 
 const PORT = 3001;
 
