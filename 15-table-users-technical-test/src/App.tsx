@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { SortBy, User } from './types.d';
+import UsersTable from './components/UsersTable';
 import './App.css';
 
 function App() {
@@ -67,13 +68,6 @@ function App() {
     return filteredUsers;
   }, [filteredUsers, sorting]);
 
-  const colors = (index: number) => {
-    if (index % 2 === 0) {
-      return '#333';
-    }
-    return '#555';
-  };
-
   return (
     <div>
       <header style={{ marginBottom: '2rem' }}>
@@ -95,55 +89,13 @@ function App() {
           />
         </nav>
       </header>
-      <table style={{ width: '100%' }}>
-        <thead>
-          <tr>
-            <th>Picture</th>
-            <th
-              className='select-filter'
-              onClick={() => toggleSortingBy(SortBy.Name)}
-            >
-              Name
-            </th>
-            <th
-              className='select-filter'
-              onClick={() => toggleSortingBy(SortBy.LastName)}
-            >
-              LastName
-            </th>
-            <th
-              className='select-filter'
-              onClick={() => toggleSortingBy(SortBy.Country)}
-            >
-              Country
-            </th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          {sortedUsers.map((user, index) => (
-            <tr
-              key={user.login.uuid}
-              style={{ backgroundColor: showColors ? colors(index) : '' }}
-            >
-              <td>
-                <img
-                  src={user.picture.thumbnail}
-                  alt={`picture of ${user.name.first}`}
-                />
-              </td>
-              <td>{user.name.first}</td>
-              <td>{user.name.last}</td>
-              <td>{user.location.country}</td>
-              <td>
-                <button onClick={() => deleteUser(user.login.uuid)}>
-                  Delete
-                </button>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+
+      <UsersTable
+        users={sortedUsers}
+        toggleSortingBy={toggleSortingBy}
+        deleteUser={deleteUser}
+        showColors={showColors}
+      />
     </div>
   );
 }
