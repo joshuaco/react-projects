@@ -3,25 +3,42 @@ import { SortBy, User } from './types.d';
 import UsersTable from './components/UsersTable';
 import './App.css';
 
+const fetchData = async (currentPage: number) => {
+  const response = await fetch(
+    `https://randomuser.me/api/?page=${currentPage}&results=5&seed=foobar`
+  );
+  if (!response.ok) throw new Error('Failed to fetch data');
+  const data = await response.json();
+  return data.results;
+};
+
 function App() {
   const [users, setUsers] = useState<User[]>([]);
   const [showColors, setShowColors] = useState(false);
   const [sorting, setSorting] = useState<SortBy>(SortBy.None);
   const [filterValue, setFilterValue] = useState<string | null>(null);
+  const [error, setError] = useState<string | null>(null);
+  const [loading, setLoading] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
 
   const usersRef = useRef<User[]>([]);
 
   useEffect(() => {
-    fetch('https://randomuser.me/api/?results=100')
-      .then((res) => res.json())
+    setLoading(true);
+    setError(null);
+
+    fetchData(currentPage)
       .then((data) => {
-        setUsers(data.results);
-        usersRef.current = data.results;
+        setUsers((prevUsers) => prevUsers.concat(data));
+        usersRef.current = usersRef.current.concat(data);
       })
       .catch((err) => {
-        console.log(err);
+        setError(err.message);
+      })
+      .finally(() => {
+        setLoading(false);
       });
-  }, []);
+  }, [currentPage]);
 
   const toggleColors = () => {
     setShowColors(!showColors);
@@ -68,6 +85,10 @@ function App() {
     return filteredUsers;
   }, [filteredUsers, sorting]);
 
+  const toNextPage = () => {
+    setCurrentPage(currentPage + 1);
+  };
+
   return (
     <div>
       <header style={{ marginBottom: '2rem' }}>
@@ -90,12 +111,24 @@ function App() {
         </nav>
       </header>
 
-      <UsersTable
-        users={sortedUsers}
-        toggleSortingBy={toggleSortingBy}
-        deleteUser={deleteUser}
-        showColors={showColors}
-      />
+      {filteredUsers.length > 0 && (
+        <UsersTable
+          users={sortedUsers}
+          toggleSortingBy={toggleSortingBy}
+          deleteUser={deleteUser}
+          showColors={showColors}
+        />
+      )}
+
+      {loading && <div>Loading...</div>}
+
+      {!loading && error && <p>{error}</p>}
+
+      {!loading && !error && filteredUsers.length === 0 && (
+        <p>No users found</p>
+      )}
+
+      {!loading && !error && <button onClick={toNextPage}>Show more</button>}
     </div>
   );
 }
