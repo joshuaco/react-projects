@@ -1,0 +1,44 @@
+{
+  "quizz": [
+    {
+      "id": 1,
+      "pregunta": "¿Cuál es la salida del siguiente código?",
+      "codigo": "console.log(typeof null);",
+      "opciones": ["'object'", "'null'", "'undefined'", "'function'"],
+      "respuesta": 0
+    },
+    {
+      "id": 2,
+      "pregunta": "¿Qué valor se imprime en la consola?",
+      "codigo": "let x = 10; x += 5;",
+      "opciones": ["5", "10", "15", "undefined"],
+      "respuesta": 2
+    },
+    {
+      "id": 3,
+      "pregunta": "¿Cuál es el resultado de la siguiente operación?",
+      "codigo": "'5' + 5",
+      "opciones": ["10", "'55'", "'10'", "555"],
+      "respuesta": 1
+    },
+    {
+      "id": 4,
+      "pregunta": "¿Cuál de las siguientes palabras clave detiene un bucle en JavaScript?",
+      "codigo": "",
+      "opciones": ["stop", "end", "return", "break"],
+      "respuesta": 3
+    },
+    {
+      "id": 5,
+      "pregunta": "¿Cómo se declara una función en JavaScript?",
+      "codigo": "",
+      "opciones": [
+        "function: myFunction() {}",
+        "function = myFunction() {}",
+        "function myFunction() {}",
+        "myFunction() {}"
+      ],
+      "respuesta": 2
+    }
+  ]
+}
