@@ -1,7 +1,7 @@
 import { Button, Container, Stack, Typography } from '@mui/material';
 import useQuestionsStore from './store/questions';
 import Game from './components/Game';
-import JavaScriptLogo from './components/JavaScriptLogo';
+import TypeScriptLogo from './components/TypeScriptLogo';
 
 function App() {
   const questions = useQuestionsStore((state) => state.questions);
@@ -19,11 +19,11 @@ function App() {
           gap={2}
           alignItems='center'
           justifyContent='center'
-          marginBottom={3}
+          marginBottom={2}
         >
-          <JavaScriptLogo />
-          <Typography variant='h4' component='h1'>
-            JavaScript Quiz
+          <TypeScriptLogo />
+          <Typography variant='h3' component='h1'>
+            TypeScript Quiz
           </Typography>
         </Stack>
 

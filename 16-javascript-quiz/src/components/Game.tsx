@@ -13,6 +13,7 @@ import { Question as QuestionType } from '../types';
 import useQuestionsStore from '../store/questions';
 import CodeHighlight from './CodeHighlight';
 import { ArrowBackIosNew, ArrowForwardIos } from '@mui/icons-material';
+import Footer from './Footer';
 
 const getBackgroundColor = (index: number, question: QuestionType) => {
   const { userAnswer, respuesta } = question;
@@ -98,6 +99,7 @@ function Game() {
       <Card variant='outlined'>
         <Question question={questionInfo} />
       </Card>
+      <Footer />
     </Stack>
   );
 }

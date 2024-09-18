@@ -2,42 +2,102 @@
   "quizz": [
     {
       "id": 1,
-      "pregunta": "¿Cuál es la salida del siguiente código?",
-      "codigo": "console.log(typeof null);",
-      "opciones": ["'object'", "'null'", "'undefined'", "'function'"],
-      "respuesta": 0
-    },
-    {
-      "id": 2,
-      "pregunta": "¿Qué valor se imprime en la consola?",
-      "codigo": "let x = 10; x += 5;",
-      "opciones": ["5", "10", "15", "undefined"],
+      "pregunta": "¿Cómo se define un tipo de dato para una variable en TypeScript?",
+      "codigo": "let name: string;",
+      "opciones": [
+        "let name;",
+        "var name: string;",
+        "let name: string;",
+        "name: string;"
+      ],
       "respuesta": 2
     },
     {
+      "id": 2,
+      "pregunta": "¿Cuál es el error en el siguiente código?",
+      "codigo": "let age: number = '23';",
+      "opciones": [
+        "No hay error",
+        "El valor asignado no es del tipo 'number'",
+        "Falta el punto y coma",
+        "Se debe usar 'var' en lugar de 'let'"
+      ],
+      "respuesta": 1
+    },
+    {
       "id": 3,
-      "pregunta": "¿Cuál es el resultado de la siguiente operación?",
-      "codigo": "'5' + 5",
-      "opciones": ["10", "'55'", "'10'", "555"],
+      "pregunta": "¿Qué tipo de dato puede almacenar la variable?",
+      "codigo": "let isCompleted: boolean = true;",
+      "opciones": [
+        "Cualquier tipo",
+        "Solo valores booleanos",
+        "Solo números y cadenas",
+        "Solo valores nulos"
+      ],
       "respuesta": 1
     },
     {
       "id": 4,
-      "pregunta": "¿Cuál de las siguientes palabras clave detiene un bucle en JavaScript?",
-      "codigo": "",
-      "opciones": ["stop", "end", "return", "break"],
-      "respuesta": 3
+      "pregunta": "¿Cuál es la salida del siguiente código?",
+      "codigo": "let num: number | string = '10';\nconsole.log(typeof num);",
+      "opciones": ["'number'", "'string'", "'undefined'", "'boolean'"],
+      "respuesta": 1
     },
     {
       "id": 5,
-      "pregunta": "¿Cómo se declara una función en JavaScript?",
-      "codigo": "",
+      "pregunta": "¿Qué devuelve la función en este caso?",
+      "codigo": "function greet(name: string): string {\n  return 'Hello, ' + name;\n}\ngreet('Alice');",
+      "opciones": ["'Hello, Alice'", "'Alice'", "undefined", "null"],
+      "respuesta": 0
+    },
+    {
+      "id": 6,
+      "pregunta": "¿Cómo se define una función que retorna un número?",
+      "codigo": "function add(a: number, b: number): number {\n  return a + b;\n}",
       "opciones": [
-        "function: myFunction() {}",
-        "function = myFunction() {}",
-        "function myFunction() {}",
-        "myFunction() {}"
+        "function add(a, b) {}",
+        "function add(a: number, b: number): void",
+        "function add(a: number, b: number): number",
+        "function add(a: string, b: string): string"
       ],
+      "respuesta": 2
+    },
+    {
+      "id": 7,
+      "pregunta": "¿Qué es lo que define el operador `as` en TypeScript?",
+      "codigo": "let input = <HTMLInputElement>document.getElementById('input-field');",
+      "opciones": [
+        "Una operación matemática",
+        "Una declaración de tipo explícito",
+        "Un operador de igualdad",
+        "Una función de conversión"
+      ],
+      "respuesta": 1
+    },
+    {
+      "id": 8,
+      "pregunta": "¿Cómo se especifica un arreglo de números en TypeScript?",
+      "codigo": "let numbers: number[] = [1, 2, 3, 4];",
+      "opciones": [
+        "let numbers: Array = [1, 2, 3, 4];",
+        "let numbers = [1, 2, 3, 4];",
+        "let numbers: number[] = [1, 2, 3, 4];",
+        "let numbers: [number] = [1, 2, 3, 4];"
+      ],
+      "respuesta": 2
+    },
+    {
+      "id": 9,
+      "pregunta": "¿Qué valor imprime en la consola?",
+      "codigo": "let user: [string, number];\nuser = ['John', 25];\nconsole.log(user[1]);",
+      "opciones": ["'John'", "25", "undefined", "null"],
+      "respuesta": 1
+    },
+    {
+      "id": 10,
+      "pregunta": "¿Qué tipo de dato es la variable 'id'?",
+      "codigo": "let id: number | string;",
+      "opciones": ["number", "string", "number o string", "undefined"],
       "respuesta": 2
     }
   ]
