@@ -1,6 +1,7 @@
 import { Middleware } from '@reduxjs/toolkit';
 import { rollbackUser } from './users/slice';
 import { toast } from 'sonner';
+import { RootState } from '.';
 
 export const persistancleLocalStorageMiddleware: Middleware =
   (store) => (next) => (action) => {
@@ -11,10 +12,17 @@ export const persistancleLocalStorageMiddleware: Middleware =
     localStorage.setItem('__redux__state', JSON.stringify(store.getState()));
   };
 
+const isAction = (
+  action: unknown
+): action is { type: string; payload: string } =>
+  typeof action === 'object' && action !== null && 'type' in action;
+
 export const syncWithDatabaseMiddleware: Middleware =
   (store) => (next) => (action) => {
+    if (!isAction(action)) return next(action);
+
     const { type, payload } = action;
-    const prevState = store.getState();
+    const prevState = store.getState() as RootState;
     next(action);
 
     if (type === 'users/removeUserByID') {
