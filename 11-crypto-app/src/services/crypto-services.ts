@@ -12,11 +12,16 @@ export async function getCryptos() {
   const {
     data: { Data }
   } = await axios(API_URL);
+
   const response = CryptoCurrenciesResponseSchema.safeParse(Data);
 
   if (response.success) {
     return response.data;
   }
+  if (response.error) {
+    console.log(response.error.issues);
+  }
+  return [];
 }
 
 export async function getCurrentCryptoData(pair: Pair) {
@@ -32,5 +37,7 @@ export async function getCurrentCryptoData(pair: Pair) {
 
   if (response.success) {
     return response.data;
+  } else {
+    throw new Error('Error fetching crypto data');
   }
 }

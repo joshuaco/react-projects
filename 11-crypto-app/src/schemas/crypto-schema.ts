@@ -10,12 +10,14 @@ export const CryptoCurrencyResponseSchema = z.object({
     FullName: z.string(),
     Name: z.string()
   }),
-  RAW: z.object({
-    USD: z.object({
-      CHANGEPCTHOUR: z.number(),
-      PRICE: z.number()
+  RAW: z.optional(
+    z.object({
+      USD: z.object({
+        CHANGEPCTHOUR: z.number(),
+        PRICE: z.number()
+      })
     })
-  })
+  )
 });
 
 export const CryptoCurrenciesResponseSchema = z.array(
