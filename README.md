@@ -24,3 +24,4 @@ This repository contains projects created with React using vite, pnpm, React Que
 | `11`   | Crypto Market with Zustand and Zod  | ![Static Badge](https://img.shields.io/badge/TypeScript-blue)   | [Go to Site](https://glittery-taiyaki-435e19.netlify.app/)   |
 | `12`   | Todo App with Zustand and JSONBin   | ![Static Badge](https://img.shields.io/badge/TypeScript-blue)   | [Go to Site](https://jazzy-nasturtium-f3000f.netlify.app/)   |
 | `13`   | Google Translate Clone with Gemini AI | ![Static Badge](https://img.shields.io/badge/TypeScript-blue) | [Go to Site](https://luminous-rabanadas-1f27ed.netlify.app/) |
+| `14`   | Redux Toolkit CRUD                  | ![Static Badge](https://img.shields.io/badge/TypeScript-blue) | [Go to Site](https://majestic-mousse-e4df77.netlify.app/)      |
