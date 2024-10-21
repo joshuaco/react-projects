@@ -26,3 +26,4 @@ This repository contains projects created with React using vite, pnpm, React Que
 | `13`   | Google Translate Clone with Gemini AI | ![Static Badge](https://img.shields.io/badge/TypeScript-blue) | [Go to Site](https://luminous-rabanadas-1f27ed.netlify.app/) |
 | `14`   | Redux Toolkit CRUD                  | ![Static Badge](https://img.shields.io/badge/TypeScript-blue) | [Go to Site](https://majestic-mousse-e4df77.netlify.app/)      |
 | `16`   | TypeScript Quiz With Zustand        | ![Static Badge](https://img.shields.io/badge/TypeScript-blue) | [Go to Site](https://dazzling-torte-dd190e.netlify.app/)       |
+| `16`   | Cocktail app with React Router DOM  | ![Static Badge](https://img.shields.io/badge/TypeScript-blue) | [Go to Site](https://sensational-figolla-4c3775.netlify.app/)  |
