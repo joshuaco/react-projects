@@ -1,7 +1,12 @@
+import Cards from './components/Cards';
+import Search from './components/Search';
+
 function App() {
   return (
-    <div>
-      <h1 className='text-3xl'>Project TCG</h1>
+    <div className='flex flex-col items-center h-screen'>
+      <h1 className='text-3xl text-white mt-8'>Project TCG</h1>
+      <Search />
+      <Cards />
     </div>
   );
 }
