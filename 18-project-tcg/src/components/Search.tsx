@@ -1,7 +1,16 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { searchCardByName } from '../services/cards';
 
 function Search() {
   const [search, setSearch] = useState('');
+
+  useEffect(() => {
+    if (search) {
+      searchCardByName(search).then((cards) => {
+        console.log(cards);
+      });
+    }
+  }, [search]);
 
   return (
     <form className='mt-4'>
