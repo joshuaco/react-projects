@@ -1,17 +1,17 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect } from 'react';
+import { CardsContext } from '../context/CardsContext';
 import { getCards } from '../services/cards';
-import { Card as CardType } from '../types';
 import Card from './Card';
 
 function Cards() {
-  const [cards, setCards] = useState<CardType[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const { cards, setCards, isLoading, setIsLoading } = useContext(CardsContext);
 
   useEffect(() => {
     getCards().then((cards) => {
       setCards(cards);
       setIsLoading(false);
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

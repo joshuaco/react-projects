@@ -22,7 +22,7 @@ export const cardSchema = z.object({
       })
     )
     .optional(),
-  hp: z.string(),
+  hp: z.string().optional(),
   images: z.object({
     small: z.string(),
     large: z.string()
@@ -30,7 +30,7 @@ export const cardSchema = z.object({
   name: z.string(),
   number: z.string(),
   rarity: z.string().optional(),
-  types: z.array(z.string()),
+  types: z.array(z.string()).optional(),
   weaknesses: z
     .array(z.object({ type: z.string(), value: z.string() }))
     .optional()

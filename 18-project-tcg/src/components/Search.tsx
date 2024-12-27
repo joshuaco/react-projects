@@ -1,16 +1,23 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { searchCardByName } from '../services/cards';
+import { CardsContext } from '../context/CardsContext';
+import { useDebounce } from '@uidotdev/usehooks';
 
 function Search() {
   const [search, setSearch] = useState('');
+  const { setCards, setIsLoading } = useContext(CardsContext);
+  const debouncedSearch = useDebounce(search, 500);
 
   useEffect(() => {
-    if (search) {
-      searchCardByName(search).then((cards) => {
-        console.log(cards);
+    if (debouncedSearch) {
+      setIsLoading(true);
+      searchCardByName(debouncedSearch).then((cards) => {
+        setCards(cards);
+        setIsLoading(false);
       });
     }
-  }, [search]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [debouncedSearch]);
 
   return (
     <form className='mt-4'>
