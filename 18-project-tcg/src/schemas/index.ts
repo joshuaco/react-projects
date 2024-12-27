@@ -30,6 +30,7 @@ export const cardSchema = z.object({
   name: z.string(),
   number: z.string(),
   rarity: z.string().optional(),
+  rules: z.array(z.string()).optional(),
   types: z.array(z.string()).optional(),
   weaknesses: z
     .array(z.object({ type: z.string(), value: z.string() }))
