@@ -6,7 +6,6 @@ interface CardModalProps {
 }
 
 function CardModal({ card, onClose }: CardModalProps) {
-  console.log(card);
   return (
     <div className='w-full h-full bg-slate-400 bg-opacity-50 fixed top-0 left-0 z-10 flex justify-center items-center'>
       <div className='lg:w-1/2 md:w-5/6 bg-white rounded-lg p-4 shadow-lg grid grid-cols-2 gap-4'>
