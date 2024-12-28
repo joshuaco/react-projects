@@ -16,7 +16,7 @@ function Card({ card }: CardProps) {
 
   return (
     <>
-      <article onClick={handleClick}>
+      <article onClick={handleClick} className='content-visibility-auto'>
         <img src={`${card.images.small}`} alt={card.name} />
       </article>
       {showModal &&
