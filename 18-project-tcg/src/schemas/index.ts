@@ -15,7 +15,7 @@ export const cardSchema = z.object({
     .array(
       z.object({
         cost: z.array(z.string()),
-        damage: z.string(),
+        damage: z.string().optional(),
         name: z.string(),
         text: z.string(),
         convertedEnergyCost: z.number()
