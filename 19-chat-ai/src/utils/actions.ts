@@ -5,11 +5,11 @@ const openrouter = createOpenRouter({
   apiKey: import.meta.env.VITE_OPENROUTER_API_KEY
 });
 
-export const generateText = (input: string, model: string) => {
+export const generate = async (input: string, model: string) => {
   const result = streamText({
     model: openrouter(model),
     prompt: input
   });
 
-  return result;
+  return result.textStream;
 };
