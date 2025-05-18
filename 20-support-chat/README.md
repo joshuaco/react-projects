@@ -1,54 +1,73 @@
-# React + TypeScript + Vite
+# Support Chat
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern real-time support chat application built with React, TypeScript, and Shadcn UI. This application provides a seamless chat experience with a beautiful, responsive interface.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- 🎨 Modern UI with Shadcn UI and Tailwind CSS
+- 💻 Built with TypeScript for type safety
+- 🚀 Powered by Vite for fast development and building
+- 📱 Fully responsive design
+- 🎯 Real-time chat functionality
+- 🔒 Type-safe development experience
 
-## Expanding the ESLint configuration
+## Prerequisites
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Before you begin, ensure you have the following installed:
+- Node.js (v18 or higher)
+- pnpm (v10 or higher)
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## Development
+
+To start the development server:
+
+```bash
+pnpm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+This will start the application in development mode. Open [http://localhost:5173](http://localhost:5173) to view it in your browser.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Building for Production
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+To create a production build:
+
+```bash
+pnpm build
 ```
+
+To preview the production build locally:
+
+```bash
+pnpm preview
+```
+
+## Project Structure
+
+```
+20-support-chat/
+├── src/              # Source files
+├── public/           # Static assets
+├── components.json   # Shadcn UI configuration
+├── tsconfig.json    # TypeScript configuration
+└── vite.config.ts   # Vite configuration
+```
+
+## Technologies Used
+
+- React 19
+- TypeScript
+- Vite
+- Tailwind CSS
+- Shadcn UI
+- Radix UI Primitives
+
+## Scripts
+
+- `pnpm dev` - Start development server
+- `pnpm build` - Create production build
+- `pnpm lint` - Run ESLint
+- `pnpm preview` - Preview production build
+
+## License
+
+This project is licensed under the MIT License.
