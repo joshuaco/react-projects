@@ -10,7 +10,7 @@ interface Message {
   timestamp: string
 }
 
-export default function ChatInterface() {
+export default function ChatPage() {
   const [input, setInput] = useState("")
   const [messages] = useState<Message[]>([
     {
@@ -87,7 +87,7 @@ export default function ChatInterface() {
             placeholder="Type a message as a customer"
             value={input}
             onChange={(e) => setInput(e.target.value)}
-            className="min-h-[44px] resize-none py-3 w-full"
+            className="min-h-[44px] resize-none py-2 w-full"
           />
           <Button className="h-[44px] px-4 flex items-center gap-2">
             <Send className="h-4 w-4" />

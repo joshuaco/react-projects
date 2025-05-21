@@ -1,9 +1,10 @@
+import { Outlet } from "react-router"
 import { ScrollArea } from "@/components/ui/scroll-area"
 import { Button } from "@/components/ui/button"
 import { Menu, X } from "lucide-react"
 import { useState } from "react"
 
-export default function ChatLayout({ children }: { children: React.ReactNode }) {
+export default function ChatLayout() {
   const [sidebarOpen, setSidebarOpen] = useState(false)
 
   return (
@@ -98,9 +99,9 @@ export default function ChatLayout({ children }: { children: React.ReactNode }) 
         <div className="flex-1 flex flex-col">
           {/* Header */}
           <header className="h-14 px-4 flex items-center justify-between">
-            <div className="lg:hidden w-10" /> {/* Spacer for mobile menu button */}
+            <div className="w-10" /> {/* Spacer for mobile menu button */}
             <div className="flex items-center gap-2">
-              <Button variant="ghost" size="sm" className="hidden sm:inline-flex">
+              <Button variant="ghost" size="sm" className="inline-flex">
                 Save conversation
               </Button>
               <Button variant="ghost" size="sm" className="h-8 w-8 p-0">
@@ -108,7 +109,7 @@ export default function ChatLayout({ children }: { children: React.ReactNode }) 
               </Button>
             </div>
           </header>
-          {children}
+          <Outlet />
         </div>
 
         {/* Right Panel - Contact Details (Desktop) */}
