@@ -70,7 +70,7 @@ export default function ChatLayoutSkeleton() {
         <div className="flex-1 flex flex-col">
           {/* Header */}
           <header className="h-14 px-4 flex items-center justify-between">
-            <div className="lg:hidden w-10" /> {/* Spacer for mobile menu button */}
+            <div className="w-10" /> {/* Spacer for mobile menu button */}
             <div className="flex items-center gap-2">
               <Skeleton className="h-8 w-32 rounded-md hidden sm:inline-flex" />
               <Skeleton className="h-8 w-8 rounded-md" />
