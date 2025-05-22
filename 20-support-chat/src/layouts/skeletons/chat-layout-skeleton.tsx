@@ -40,26 +40,51 @@ export default function ChatLayoutSkeleton() {
           </div>
         </div>
         <ScrollArea className="h-[calc(100vh-64px)]">
-          <div className="space-y-4 p-4">
-            <div className="space-y-1">
-              <h3 className="px-2 text-sm font-semibold">Contacts</h3>
+          <div className="p-4 space-y-6">
+            <div className="space-y-3">
+              <div className="flex items-center justify-between">
+                <Skeleton className="h-4 w-16" />
+                <Skeleton className="h-5 w-5 rounded-full" />
+              </div>
               <div className="space-y-1">
                 {Array(5).fill(0).map((_, i) => (
-                  <div key={i} className="flex items-center p-2 rounded-md">
-                    <Skeleton className="h-6 w-6 rounded-full mr-2" />
-                    <Skeleton className="h-4 w-24" />
+                  <div key={i} className="flex items-center gap-3 p-3 rounded-lg">
+                    <div className="relative flex-shrink-0">
+                      <Skeleton className="h-10 w-10 rounded-full" />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center justify-between">
+                        <Skeleton className="h-4 w-20" />
+                        <Skeleton className="h-3 w-10" />
+                      </div>
+                      <Skeleton className="h-3 w-32 mt-1" />
+                    </div>
                   </div>
                 ))}
               </div>
             </div>
-            <div className="pt-4 border-t mt-4">
-              <h3 className="px-2 text-sm font-semibold mb-1">Recent</h3>
-              {Array(2).fill(0).map((_, i) => (
-                <div key={i} className="flex items-center p-2 rounded-md">
-                  <Skeleton className="h-6 w-6 rounded-full mr-2" />
-                  <Skeleton className="h-4 w-24" />
-                </div>
-              ))}
+
+            <div className="border-t pt-4 space-y-3">
+              <div className="flex items-center justify-between">
+                <Skeleton className="h-4 w-12" />
+                <Skeleton className="h-5 w-5 rounded-full" />
+              </div>
+              <div className="space-y-1">
+                {Array(2).fill(0).map((_, i) => (
+                  <div key={i} className="flex items-center gap-3 p-3 rounded-lg">
+                    <div className="relative flex-shrink-0">
+                      <Skeleton className="h-10 w-10 rounded-full" />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center justify-between">
+                        <Skeleton className="h-4 w-24" />
+                        <Skeleton className="h-3 w-8" />
+                      </div>
+                      <Skeleton className="h-3 w-28 mt-1" />
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </ScrollArea>
