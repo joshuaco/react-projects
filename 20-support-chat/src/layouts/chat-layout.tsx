@@ -21,7 +21,7 @@ export default function ChatLayout() {
       </Button>
 
       {/* Sidebar */}
-      <div
+      <aside
         className={`fixed inset-y-0 left-0 transform lg:relative lg:translate-x-0 transition-transform duration-200 ease-in-out z-40 
           ${sidebarOpen ? "translate-x-0 bg-white" : "-translate-x-full"} 
           w-64 border-r bg-muted/10 lg:block`}
@@ -41,7 +41,7 @@ export default function ChatLayout() {
           </div>
         </div>
         <ContactList />
-      </div>
+      </aside>
 
       {/* Main Content */}
       <div className="flex-1 flex flex-col lg:flex-row">

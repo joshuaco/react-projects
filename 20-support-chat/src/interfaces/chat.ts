@@ -23,3 +23,13 @@ export interface Message {
   sender: 'agent' | 'client';
   like: 'liked' | 'disliked' | 'neutral';
 }
+
+export interface Contact {
+  id: string,
+  name: string,
+  initials: string,
+  avatarColor: string,
+  isOnline: boolean,
+  lastMessage: string,
+  timestamp: string
+}
