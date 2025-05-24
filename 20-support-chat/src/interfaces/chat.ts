@@ -1,8 +1,8 @@
 export enum Plan {
-  BASIC = 'basic',
-  PRO = 'pro',
-  PREMIUM = 'premium',
-  ENTERPRISE = 'enterprise',
+  BASIC = 'Basic',
+  PRO = 'Pro',
+  PREMIUM = 'Premium',
+  ENTERPRISE = 'Enterprise',
 }
 
 export interface Client {

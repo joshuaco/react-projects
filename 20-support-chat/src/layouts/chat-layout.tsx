@@ -3,7 +3,7 @@ import { Outlet } from "react-router"
 import { Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import ContactList from "@/components/chat/contact-list"
-import ContactInfoEmpty from "@/components/empty-state/contact-info-empty"
+import ContactDetails from "@/components/chat/contact-details"
 
 export default function ChatLayout() {
   const [sidebarOpen, setSidebarOpen] = useState(false)
@@ -76,7 +76,7 @@ function RightPanelContent() {
       <div className="h-14 border-b px-4 flex items-center">
         <h2 className="font-medium">Contact details</h2>
       </div>
-      <ContactInfoEmpty />
+      <ContactDetails />
     </>
   )
 }
