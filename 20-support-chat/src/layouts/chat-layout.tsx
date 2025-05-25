@@ -47,7 +47,7 @@ export default function ChatLayout() {
       <div className="flex-1 flex flex-col lg:flex-row">
         <div className="flex-1 flex flex-col">
           {/* Header */}
-          <header className="h-14 px-4 flex items-center justify-between">
+          <header className="h-14 px-4 flex items-center justify-between border-b">
             <div className="w-10" /> {/* Spacer for mobile menu button */}
             <div className="flex items-center gap-2">
               <Button variant="ghost" size="sm" className="inline-flex">
