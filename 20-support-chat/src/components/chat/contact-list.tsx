@@ -8,7 +8,7 @@ import { getClients } from "@/mock/fake-data";
 import { cn } from "@/lib/utils"
 import type { Client } from "@/interfaces/chat";
 
-function ContactItem({ contact, isActive = false }: { contact: Client; isActive?: boolean }) {
+function ContactItem({ contact }: { contact: Client; }) {
   const contactPath = `/chat/${contact.id}`;
 
   return (
@@ -17,30 +17,28 @@ function ContactItem({ contact, isActive = false }: { contact: Client; isActive?
       className={({ isActive: routeIsActive }) =>
         cn(
           "flex items-center gap-3 p-3 rounded-lg transition-all duration-200 hover:bg-muted/60 group",
-          (routeIsActive || isActive) && "bg-muted border border-border"
+          (routeIsActive) && "bg-muted border border-border"
         )
       }
     >
-      {() => (
-        <>
-          <div className="relative flex-shrink-0">
-            <div className={cn(
-              "h-10 w-10 rounded-full flex items-center justify-center text-white text-sm font-medium shadow-sm",
-              "bg-blue-500"
-            )}>
-              {contact.name.split(' ').map(name => name.charAt(0)).join('')}
-            </div>
+      <>
+        <div className="relative flex-shrink-0">
+          <div className={cn(
+            "h-10 w-10 rounded-full flex items-center justify-center text-white text-sm font-medium shadow-sm",
+            "bg-primary"
+          )}>
+            {contact.name.split(' ').map(name => name.charAt(0)).join('')}
           </div>
+        </div>
 
-          <div className="flex-1 min-w-0">
-            <div className="flex items-center justify-between">
-              <h4 className="font-medium text-sm truncate text-foreground">
-                {contact.name}
-              </h4>
-            </div>
+        <div className="flex-1 min-w-0">
+          <div className="flex items-center justify-between">
+            <h4 className="font-medium text-sm truncate text-foreground">
+              {contact.name}
+            </h4>
           </div>
-        </>
-      )}
+        </div>
+      </>
     </NavLink>
   );
 }
