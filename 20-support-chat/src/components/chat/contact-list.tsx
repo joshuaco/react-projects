@@ -1,9 +1,11 @@
 import { useQuery } from "@tanstack/react-query";
 import { NavLink } from "react-router";
+
+import { Badge } from "@/components/ui/badge";
+import { ScrollArea } from "@/components/ui/scroll-area";
+
 import { getClients } from "@/mock/fake-data";
-import { ScrollArea } from "../ui/scroll-area";
-import { Badge } from "../ui/badge";
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/utils"
 import type { Client } from "@/interfaces/chat";
 
 function ContactItem({ contact, isActive = false }: { contact: Client; isActive?: boolean }) {
@@ -23,7 +25,8 @@ function ContactItem({ contact, isActive = false }: { contact: Client; isActive?
         <>
           <div className="relative flex-shrink-0">
             <div className={cn(
-              "h-10 w-10 rounded-full flex items-center justify-center text-white text-sm font-medium shadow-sm bg-primary"
+              "h-10 w-10 rounded-full flex items-center justify-center text-white text-sm font-medium shadow-sm",
+              "bg-blue-500"
             )}>
               {contact.name.split(' ').map(name => name.charAt(0)).join('')}
             </div>

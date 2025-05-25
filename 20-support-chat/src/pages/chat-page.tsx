@@ -23,7 +23,6 @@ export default function ChatPage() {
     queryFn: () => getClientMessages(chatId)
   });
 
-
   if (isLoading) return <ChatPageSkeleton />
   if (messages.length === 0) return <EmptyConversationState />
 
