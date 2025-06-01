@@ -6,7 +6,7 @@ import ContactInfoSkeleton from "@/layouts/skeletons/contact-info-skeleton";
 import ContactInfo from "./contact-info";
 
 function ContactDetails() {
-  const { chatId = "" } = useParams();
+  const { chatId = "null" } = useParams();
   const { client, isLoading } = useClient(chatId);
 
   if (!chatId) return <ContactInfoEmpty />

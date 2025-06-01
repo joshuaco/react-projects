@@ -16,15 +16,15 @@ function ContactItem({ contact }: { contact: Client; }) {
       to={contactPath}
       className={({ isActive: routeIsActive }) =>
         cn(
-          "flex items-center gap-3 p-3 rounded-lg transition-all duration-200 hover:bg-muted/60 group",
-          (routeIsActive) && "bg-muted border border-border"
+          "flex items-center gap-3 p-3 rounded-lg transition-all duration-200 hover:bg-slate-100 group",
+          (routeIsActive) && "bg-slate-200 border border-border hover:bg-slate-300"
         )
       }
     >
       <>
         <div className="relative flex-shrink-0">
           <div className={cn(
-            "h-10 w-10 rounded-full flex items-center justify-center text-white text-sm font-medium shadow-sm",
+            "h-8 w-8 rounded-full flex items-center justify-center text-white text-sm font-medium shadow-sm",
             "bg-primary"
           )}>
             {contact.name.split(' ').map(name => name.charAt(0)).join('')}
@@ -50,8 +50,8 @@ function ContactList() {
   })
 
   return (
-    <ScrollArea className="h-[calc(100vh-64px)]">
-      <div className="p-4 space-y-6">
+    <ScrollArea className="h-[calc(100vh-120px)]">
+      <div className="p-4 space-y-2">
         <div className="space-y-3">
           <div className="flex items-center justify-between">
             <h3 className="text-sm font-semibold text-foreground">Contacts</h3>
@@ -63,14 +63,6 @@ function ContactList() {
             {contacts?.map((contact) => (
               <ContactItem key={contact.id} contact={contact} />
             ))}
-          </div>
-        </div>
-      </div>
-
-      <div className="border-t space-y-6">
-        <div className="p-4 space-y-3">
-          <div className="flex items-center justify-between">
-            <h3 className="text-sm font-semibold text-foreground">Recent</h3>
           </div>
         </div>
       </div>

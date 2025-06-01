@@ -13,9 +13,7 @@ export const loginUser = async () => {
   };
 };
 
-export const checkAuth = async (token: string) => {
-  await sleep(500);
-
+export const checkAuth = (token: string) => {
   if (token !== 'token-1234567890') {
     throw new Error('Invalid token');
   }
@@ -199,6 +197,15 @@ const clients: Client[] = [
     memberSince: new Date('2023-04-28'),
     currentPlan: Plan.ENTERPRISE,
   },
+  {
+    id: 'C1-12345',
+    name: 'Juan Pablo',
+    email: 'juanpablo@gmail.com',
+    phone: '+506 6000-0000',
+    address: 'San José, Costa Rica',
+    memberSince: new Date('2023-04-28'),
+    currentPlan: Plan.BASIC,
+  }
 ];
 
 clients.forEach((client) => {

@@ -5,7 +5,7 @@ export const useClient = (chatId: string) => {
   const { data: client, isLoading } = useQuery({
     queryKey: ["client", chatId],
     queryFn: () => getClient(chatId),
-    enabled: !!chatId
+    enabled: chatId !== "null"
   });
 
   return { client, isLoading };
