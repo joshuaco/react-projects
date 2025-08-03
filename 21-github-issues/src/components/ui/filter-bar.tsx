@@ -28,7 +28,7 @@ function FilterBar() {
           <button
             key={option.value}
             className="px-3 py-1.5 text-sm text-gray-700 rounded-md font-medium bg-white border 
-            border-gray-200 hover:bg-gray-100"
+            border-gray-300 hover:bg-gray-100"
           >
             {option.label}
             {option.count > 0 && (

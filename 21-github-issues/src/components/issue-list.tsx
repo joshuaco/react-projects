@@ -1,10 +1,14 @@
-import { mockIssues } from '@/data/mock-data';
+import type { GitHubIssue } from '@/types';
 import IssueCard from './issue-card';
 
-function IssueList() {
+interface Props {
+  issues: GitHubIssue[];
+}
+
+function IssueList({ issues }: Props) {
   return (
     <div className="space-y-4">
-      {mockIssues.map((issue) => (
+      {issues.map((issue) => (
         <IssueCard key={issue.id} issue={issue} />
       ))}
     </div>

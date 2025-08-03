@@ -1,6 +1,4 @@
-import type { GitHubIssue } from '@/types';
-
-export const mockIssues: GitHubIssue[] = [
+export const mockIssues = [
   {
     id: 1,
     number: 1,
