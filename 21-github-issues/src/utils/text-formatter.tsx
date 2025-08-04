@@ -5,13 +5,13 @@ export function formatCodeElements(text: string) {
 
   const parts = text.split(formatRegex);
 
-  return parts.map((part) => {
+  return parts.map((part, idx) => {
     // Check if it's a backtick-wrapped word
     if (part.startsWith('`') && part.endsWith('`')) {
       // Remove the backticks and wrap in <code>
       const content = part.slice(1, -1);
       return (
-        <code className="bg-gray-200 px-1 py-0.5 rounded text-sm font-mono">
+        <code key={idx} className="bg-gray-200 px-1 py-0.5 rounded font-mono">
           {content}
         </code>
       );

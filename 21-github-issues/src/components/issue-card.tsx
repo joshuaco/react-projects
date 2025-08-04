@@ -1,3 +1,4 @@
+import { Link } from 'react-router';
 import { formatCodeElements } from '@/utils/text-formatter';
 import { CircleDot, MessageSquare } from 'lucide-react';
 import type { GitHubIssue } from '@/types';
@@ -17,9 +18,12 @@ function IssueCard({ issue }: IssueCardProps) {
             )}
           </div>
           <div className="flex flex-col">
-            <p className="text-sm font-medium text-gray-900">
+            <Link
+              to={`/issue/${issue.number}`}
+              className="text-sm font-medium text-gray-900"
+            >
               {formatCodeElements(issue.title)}
-            </p>
+            </Link>
             <div>
               <span className="text-xs text-gray-500">#{issue.number}</span>{' '}
               <span className="text-xs text-gray-500 font-semibold">

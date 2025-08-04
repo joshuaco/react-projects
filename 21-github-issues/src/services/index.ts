@@ -12,3 +12,9 @@ export const getIssues = async () => {
 
   return data;
 };
+
+export const getIssue = async (issueNumber: number) => {
+  const { data } = await githubApi.get<GitHubIssue>(`/issues/${issueNumber}`);
+
+  return data;
+};
