@@ -1,4 +1,4 @@
-import type { GitHubIssue, GithubLabel } from '@/types';
+import type { GitHubComment, GitHubIssue, GithubLabel } from '@/types';
 import { githubApi } from '@/api/github';
 
 export const getLabels = async () => {
@@ -15,6 +15,14 @@ export const getIssues = async () => {
 
 export const getIssue = async (issueNumber: number) => {
   const { data } = await githubApi.get<GitHubIssue>(`/issues/${issueNumber}`);
+
+  return data;
+};
+
+export const getIssueComments = async (issueNumber: number) => {
+  const { data } = await githubApi.get<GitHubComment[]>(
+    `/issues/${issueNumber}/comments`
+  );
 
   return data;
 };

@@ -20,7 +20,7 @@ function IssueCard({ issue }: IssueCardProps) {
           <div className="flex flex-col">
             <Link
               to={`/issue/${issue.number}`}
-              className="text-sm font-medium text-gray-900"
+              className="text-sm font-medium text-gray-900 text-ellipsis"
             >
               {formatCodeElements(issue.title)}
             </Link>

@@ -3,6 +3,7 @@ import { CircleDot } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
 
 import type { GitHubIssue } from '@/types';
+import { formatDistanceToNow } from 'date-fns';
 
 interface Props {
   issue: GitHubIssue;
@@ -24,7 +25,12 @@ function IssueDetails({ issue }: Props) {
               className="w-5 h-5 rounded-full"
             />
             <span className="text-sm text-gray-500">
-              Created by {issue.user.login}
+              Created by{' '}
+              <span className="font-semibold">{issue.user.login}</span>
+              {' • '}
+              {formatDistanceToNow(new Date(issue.created_at), {
+                addSuffix: true,
+              })}
             </span>
             <div className="flex md:hidden items-center gap-1 px-2 py-1.5 rounded-xl bg-green-600">
               <CircleDot className="text-white w-5 h-5" />
@@ -37,7 +43,7 @@ function IssueDetails({ issue }: Props) {
           <span className="text-white font-medium">Open</span>
         </div>
       </header>
-      <section className="mt-4 markdown-content p-4">
+      <section className="mt-2 markdown-content p-4 text-gray-700 leading-relaxed overflow-x-auto">
         <ReactMarkdown>
           {issue.body || 'No description provided.'}
         </ReactMarkdown>

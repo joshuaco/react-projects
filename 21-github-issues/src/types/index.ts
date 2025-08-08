@@ -36,6 +36,20 @@ export interface GitHubIssue {
   labels: GithubLabel[];
 }
 
+export interface GitHubComment {
+  author_association: string;
+  body: string;
+  created_at: string;
+  html_url: string;
+  id: number;
+  issue_url: string;
+  node_id: string;
+  performed_via_github_app: string | null;
+  updated_at: string;
+  url: string;
+  user: GithubUser;
+}
+
 export interface Repository {
   owner: string;
   name: string;
