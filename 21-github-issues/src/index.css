@@ -15,11 +15,11 @@
 }
 
 .markdown-content h1 {
-  @apply text-3xl border-b border-gray-300 pb-2;
+  @apply text-2xl border-b border-gray-300 pb-2;
 }
 
 .markdown-content h2 {
-  @apply text-2xl border-b border-gray-300 pb-1;
+  @apply text-xl border-b border-gray-300 pb-1;
 }
 
 .markdown-content h3 {
@@ -89,7 +89,7 @@
 }
 
 .markdown-content p {
-  @apply my-4;
+  @apply my-3;
 }
 
 .markdown-content hr {

@@ -1,5 +1,7 @@
-import ReactMarkdown from 'react-markdown';
 import { formatDistanceToNow } from 'date-fns';
+import ReactMarkdown from 'react-markdown';
+import rehypeRaw from 'rehype-raw';
+
 import type { GitHubComment } from '@/types';
 
 interface Props {
@@ -37,7 +39,7 @@ function IssueComments({ comments }: Props) {
               </time>
             </div>
             <div className="markdown-content text-gray-700 text-sm leading-relaxed">
-              <ReactMarkdown>
+              <ReactMarkdown rehypePlugins={[rehypeRaw]}>
                 {comment.body || 'No comment provided.'}
               </ReactMarkdown>
             </div>

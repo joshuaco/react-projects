@@ -1,9 +1,10 @@
 import { formatCodeElements } from '@/utils/text-formatter';
+import { formatDistanceToNow } from 'date-fns';
 import { CircleDot } from 'lucide-react';
+import rehypeRaw from 'rehype-raw';
 import ReactMarkdown from 'react-markdown';
 
 import type { GitHubIssue } from '@/types';
-import { formatDistanceToNow } from 'date-fns';
 
 interface Props {
   issue: GitHubIssue;
@@ -43,8 +44,8 @@ function IssueDetails({ issue }: Props) {
           <span className="text-white font-medium">Open</span>
         </div>
       </header>
-      <section className="mt-2 markdown-content p-4 text-gray-700 leading-relaxed overflow-x-auto">
-        <ReactMarkdown>
+      <section className="mt-2 markdown-content px-4 py-2 text-gray-700 leading-relaxed overflow-x-auto">
+        <ReactMarkdown rehypePlugins={[rehypeRaw]}>
           {issue.body || 'No description provided.'}
         </ReactMarkdown>
       </section>
