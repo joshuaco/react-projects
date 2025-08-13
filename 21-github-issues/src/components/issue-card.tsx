@@ -1,6 +1,8 @@
 import { Link } from 'react-router';
+import { useQueryClient } from '@tanstack/react-query';
 import { formatCodeElements } from '@/utils/text-formatter';
 import { CircleDot, MessageSquare } from 'lucide-react';
+
 import type { GitHubIssue } from '@/types';
 
 interface IssueCardProps {
@@ -8,8 +10,20 @@ interface IssueCardProps {
 }
 
 function IssueCard({ issue }: IssueCardProps) {
+  const queryClient = useQueryClient();
+
+  // Preload issue data into React Query cache when user hovers over the card
+  const presetData = () => {
+    queryClient.setQueryData(['issue', issue.number], issue, {
+      updatedAt: Date.now() + 1000 * 60,
+    });
+  };
+
   return (
-    <div className="bg-white rounded-lg p-4 border border-gray-200 shadow-sm flex justify-between gap-2 items-center">
+    <div
+      className="bg-white rounded-lg p-4 border border-gray-200 shadow-sm flex justify-between gap-2 items-center"
+      onMouseEnter={presetData}
+    >
       <div className="flex items-center justify-between">
         <div className="flex items-center space-x-3">
           <div className="w-5 h-5">

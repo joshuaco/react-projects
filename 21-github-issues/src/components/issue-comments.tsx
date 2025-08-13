@@ -1,6 +1,7 @@
 import { formatDistanceToNow } from 'date-fns';
 import ReactMarkdown from 'react-markdown';
 import rehypeRaw from 'rehype-raw';
+import remarkGfm from 'remark-gfm';
 
 import type { GitHubComment } from '@/types';
 
@@ -29,17 +30,23 @@ function IssueComments({ comments }: Props) {
           />
           <div className="flex-1 min-w-0">
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 mb-3">
-              <h3 className="font-medium text-gray-900">
-                {comment.user.login}
-              </h3>
-              <time className="text-sm text-gray-500 flex-shrink-0">
-                {formatDistanceToNow(new Date(comment.created_at), {
-                  addSuffix: true,
-                })}
-              </time>
+              <div className="flex items-baseline gap-2">
+                <h3 className="font-medium text-gray-900">
+                  {comment.user.login}
+                </h3>
+                <span className="text-gray-500 text-sm">{' • '}</span>
+                <time className="text-sm text-gray-500 flex-shrink-0">
+                  {formatDistanceToNow(new Date(comment.created_at), {
+                    addSuffix: true,
+                  })}
+                </time>
+              </div>
             </div>
             <div className="markdown-content text-gray-700 text-sm leading-relaxed">
-              <ReactMarkdown rehypePlugins={[rehypeRaw]}>
+              <ReactMarkdown 
+                remarkPlugins={[remarkGfm]}
+                rehypePlugins={[rehypeRaw]}
+              >
                 {comment.body || 'No comment provided.'}
               </ReactMarkdown>
             </div>
