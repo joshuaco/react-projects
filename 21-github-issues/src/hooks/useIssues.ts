@@ -1,10 +1,15 @@
 import { useQuery } from '@tanstack/react-query';
 import { getIssues } from '@/services';
+import type { IssueStateType } from '@/types';
 
-export const useIssues = () => {
+interface Props {
+  state: IssueStateType;
+}
+
+export const useIssues = ({ state }: Props) => {
   const { data: issues } = useQuery({
-    queryKey: ['issues'],
-    queryFn: getIssues,
+    queryKey: ['issues', state],
+    queryFn: () => getIssues(state),
     refetchOnWindowFocus: false,
   });
 

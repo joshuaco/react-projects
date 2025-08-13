@@ -1,4 +1,9 @@
-import type { GitHubComment, GitHubIssue, GithubLabel } from '@/types';
+import type {
+  GitHubComment,
+  GitHubIssue,
+  GithubLabel,
+  IssueStateType,
+} from '@/types';
 import { githubApi } from '@/api/github';
 
 export const getLabels = async () => {
@@ -7,9 +12,11 @@ export const getLabels = async () => {
   return data;
 };
 
-export const getIssues = async () => {
-  const { data } = await githubApi.get<GitHubIssue[]>('/issues');
+export const getIssues = async (state: IssueStateType) => {
+  const params = new URLSearchParams();
+  params.append('state', state);
 
+  const { data } = await githubApi.get<GitHubIssue[]>('/issues', { params });
   return data;
 };
 

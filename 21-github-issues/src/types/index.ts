@@ -54,3 +54,12 @@ export interface Repository {
   owner: string;
   name: string;
 }
+
+// const assertion
+export const IssueState = {
+  ALL: 'all',
+  OPEN: 'open',
+  CLOSE: 'closed',
+} as const;
+
+export type IssueStateType = (typeof IssueState)[keyof typeof IssueState];

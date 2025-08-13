@@ -1,7 +1,7 @@
 import { Link } from 'react-router';
 import { useQueryClient } from '@tanstack/react-query';
 import { formatCodeElements } from '@/utils/text-formatter';
-import { CircleDot, MessageSquare } from 'lucide-react';
+import { CircleDot, CircleCheck, MessageSquare } from 'lucide-react';
 
 import type { GitHubIssue } from '@/types';
 
@@ -27,28 +27,54 @@ function IssueCard({ issue }: IssueCardProps) {
       <div className="flex items-center justify-between">
         <div className="flex items-center space-x-3">
           <div className="w-5 h-5">
-            {issue.state === 'open' && (
+            {issue.state === 'open' ? (
               <CircleDot className="text-green-600 w-5 h-5" />
+            ) : (
+              <CircleCheck className="text-purple-600 w-5 h-5" />
             )}
           </div>
-          <div className="flex flex-col">
+          <div className="flex flex-col flex-1">
             <Link
               to={`/issue/${issue.number}`}
               className="text-sm font-medium text-gray-900 text-ellipsis"
             >
               {formatCodeElements(issue.title)}
             </Link>
-            <div>
-              <span className="text-xs text-gray-500">#{issue.number}</span>{' '}
-              <span className="text-xs text-gray-500 font-semibold">
-                {issue.user.login}
-              </span>{' '}
-              <span className="text-xs text-gray-500">opened at</span>{' '}
-              <span className="text-xs text-gray-500">
-                {new Date(issue.created_at).toLocaleDateString('en-US', {
-                  timeZone: 'UTC',
-                })}
-              </span>
+            <div className="flex flex-wrap items-center gap-2 mt-1">
+              <div>
+                <span className="text-xs text-gray-500">#{issue.number}</span>{' '}
+                <span className="text-xs text-gray-500 font-semibold">
+                  {issue.user.login}
+                </span>{' '}
+                <span className="text-xs text-gray-500">opened at</span>{' '}
+                <span className="text-xs text-gray-500">
+                  {new Date(issue.created_at).toLocaleDateString('en-US', {
+                    timeZone: 'UTC',
+                  })}
+                </span>
+              </div>
+              {issue.labels && issue.labels.length > 0 && (
+                <div className="flex flex-wrap gap-1">
+                  {issue.labels.slice(0, 3).map((label) => (
+                    <span
+                      key={label.id}
+                      className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium border"
+                      style={{
+                        backgroundColor: `#${label.color}20`,
+                        borderColor: `#${label.color}60`,
+                        color: `#${label.color}`,
+                      }}
+                    >
+                      {label.name}
+                    </span>
+                  ))}
+                  {issue.labels.length > 3 && (
+                    <span className="text-xs text-gray-500">
+                      +{issue.labels.length - 3} more
+                    </span>
+                  )}
+                </div>
+              )}
             </div>
           </div>
         </div>
