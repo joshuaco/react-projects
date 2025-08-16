@@ -9,7 +9,7 @@ function Home() {
   const [state, setState] = useState<IssueStateType>(IssueState.ALL);
   const [selectedLabels, setSelectedLabels] = useState<string[]>([]);
   const { issues } = useIssues({
-    state: state,
+    state: state
   });
 
   // Filter issues by selected labels
@@ -18,9 +18,9 @@ function Home() {
       return issues;
     }
 
-    return issues.filter(issue => {
+    return issues.filter((issue) => {
       // Issue must have at least one of the selected labels
-      return issue.labels.some(label => selectedLabels.includes(label.name));
+      return issue.labels.some((label) => selectedLabels.includes(label.name));
     });
   }, [issues, selectedLabels]);
 
@@ -28,15 +28,15 @@ function Home() {
     <>
       <SearchBar />
       {issues && (
-        <FilterBar 
-          issues={issues} 
-          state={state} 
+        <FilterBar
+          issues={issues}
+          state={state}
           onStateChange={setState}
           selectedLabels={selectedLabels}
           onLabelsChange={setSelectedLabels}
         />
       )}
-      <div className="bg-white rounded-lg p-4 border-2 border-gray-200">
+      <div className='bg-white rounded-lg p-4 border-2 border-gray-200'>
         {filteredIssues ? <IssueList issues={filteredIssues} /> : <p>Loading...</p>}
       </div>
     </>
