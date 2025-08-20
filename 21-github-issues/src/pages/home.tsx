@@ -36,7 +36,7 @@ function Home() {
           onLabelsChange={setSelectedLabels}
         />
       )}
-      <div className='bg-white rounded-lg p-4 border-2 border-gray-200'>
+      <div className='bg-white rounded-lg p-4 border-2 dark:border border-gray-200 dark:bg-gray-800 dark:border-gray-700'>
         {filteredIssues ? <IssueList issues={filteredIssues} /> : <p>Loading...</p>}
       </div>
     </>

@@ -9,7 +9,7 @@ function IssuePage() {
 
   return (
     <>
-      <div className="bg-white rounded-lg p-4 border-2 border-gray-200">
+      <div className='bg-white rounded-lg p-4 border-2 border-gray-200 dark:bg-gray-800 dark:border-gray-700'>
         {queryIssue.isLoading ? (
           <p>Loading...</p>
         ) : (

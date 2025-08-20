@@ -5,7 +5,7 @@ function MainLayout() {
   return (
     <>
       <Header />
-      <main className="px-6 py-3 space-y-6">
+      <main className='px-6 py-3 space-y-6'>
         <Outlet />
       </main>
     </>

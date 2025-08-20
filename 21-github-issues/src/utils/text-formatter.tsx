@@ -11,7 +11,10 @@ export function formatCodeElements(text: string) {
       // Remove the backticks and wrap in <code>
       const content = part.slice(1, -1);
       return (
-        <code key={idx} className="bg-gray-200 px-1 py-0.5 rounded font-mono">
+        <code
+          key={idx}
+          className='bg-gray-200 px-1 py-0.5 rounded font-mono dark:bg-gray-500 dark:text-white'
+        >
           {content}
         </code>
       );

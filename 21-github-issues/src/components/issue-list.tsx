@@ -7,7 +7,7 @@ interface Props {
 
 function IssueList({ issues }: Props) {
   return (
-    <div className="space-y-4">
+    <div className='space-y-4'>
       {issues.map((issue) => (
         <IssueCard key={issue.id} issue={issue} />
       ))}

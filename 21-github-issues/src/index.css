@@ -1,5 +1,19 @@
 @import 'tailwindcss';
 
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
+:root {
+  color-scheme: light;
+}
+
+[data-theme='dark'] {
+  color-scheme: dark;
+}
+
+html {
+  transition: color-scheme 0.3s ease;
+}
+
 /* Markdown content utility classes */
 .markdown-content {
   @apply leading-relaxed;
@@ -11,15 +25,15 @@
 .markdown-content h4,
 .markdown-content h5,
 .markdown-content h6 {
-  @apply mt-6 mb-2 font-semibold;
+  @apply mt-6 mb-2 font-semibold dark:text-gray-100;
 }
 
 .markdown-content h1 {
-  @apply text-2xl border-b border-gray-300 pb-2;
+  @apply text-2xl border-b border-gray-300 dark:border-gray-600 pb-2;
 }
 
 .markdown-content h2 {
-  @apply text-xl border-b border-gray-300 pb-1;
+  @apply text-xl border-b border-gray-300 dark:border-gray-600 pb-1;
 }
 
 .markdown-content h3 {
@@ -39,11 +53,11 @@
 }
 
 .markdown-content pre {
-  @apply bg-gray-50 rounded-md p-4 overflow-x-auto border border-gray-200 my-4;
+  @apply bg-gray-50 dark:bg-gray-800 rounded-md p-4 overflow-x-auto border border-gray-200 dark:border-gray-700 my-4;
 }
 
 .markdown-content code {
-  @apply bg-gray-100 px-1 py-0.5 rounded text-sm border border-gray-200 font-mono;
+  @apply bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded text-sm border border-gray-200 dark:border-gray-700 font-mono;
 }
 
 .markdown-content pre code {
@@ -51,20 +65,20 @@
 }
 
 .markdown-content blockquote {
-  @apply border-l-4 border-gray-300 pl-4 ml-0 text-gray-600 italic my-4;
+  @apply border-l-4 border-gray-300 dark:border-gray-600 pl-4 ml-0 text-gray-600 dark:text-gray-400 italic my-4;
 }
 
 .markdown-content table {
-  @apply border-collapse w-full my-4 border border-gray-200;
+  @apply border-collapse w-full my-4 border border-gray-200 dark:border-gray-700;
 }
 
 .markdown-content th,
 .markdown-content td {
-  @apply border border-gray-200 p-2 text-left;
+  @apply border border-gray-200 dark:border-gray-700 p-2 text-left;
 }
 
 .markdown-content th {
-  @apply bg-gray-50 font-semibold;
+  @apply bg-gray-50 dark:bg-gray-800 font-semibold;
 }
 
 .markdown-content ul,
@@ -85,7 +99,7 @@
 }
 
 .markdown-content a {
-  @apply text-blue-600 hover:underline;
+  @apply text-blue-600 dark:text-blue-400 hover:underline;
 }
 
 .markdown-content p {
@@ -93,12 +107,12 @@
 }
 
 .markdown-content hr {
-  @apply border-t border-gray-300 my-6;
+  @apply border-t border-gray-300 dark:border-gray-600 my-6;
 }
 
 /* Estilos específicos para imágenes */
 .markdown-content img {
-  @apply max-w-full h-auto rounded-lg shadow-md my-4 border border-gray-200;
+  @apply max-w-full h-auto rounded-lg shadow-md my-4 border border-gray-200 dark:border-gray-700;
 }
 
 /* Para imágenes grandes, añadir scroll horizontal si es necesario */

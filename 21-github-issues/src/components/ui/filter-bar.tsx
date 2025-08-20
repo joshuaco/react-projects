@@ -54,7 +54,7 @@ function FilterBar({
   ];
 
   return (
-    <div className='bg-white rounded-lg p-4 border-2 border-gray-200'>
+    <div className='bg-white rounded-lg p-4 border-2 dark:border border-gray-200 dark:bg-gray-800 dark:border-gray-700'>
       <div className='flex justify-between items-center'>
         <div className='flex flex-wrap gap-2'>
           {filterOptions.map((option) => (
@@ -62,14 +62,16 @@ function FilterBar({
               key={option.value}
               className={`px-3 py-1.5 text-sm rounded-md font-medium border transition-colors duration-200 ${
                 state === option.value
-                  ? 'bg-blue-100 border-blue-400 text-blue-600'
-                  : 'bg-white border-gray-300 text-gray-700 hover:bg-gray-100'
+                  ? 'bg-blue-100 border-blue-400 text-blue-600 dark:bg-blue-500 dark:border-blue-700 dark:text-white'
+                  : 'bg-white border-gray-300 text-gray-700 hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:text-white dark:hover:bg-gray-700'
               }`}
               onClick={() => onStateChange(option.value)}
             >
               {option.label}
               {option.count >= 0 && (
-                <span className='ml-1 text-xs text-gray-500'>({option.count})</span>
+                <span className='ml-1 text-xs text-gray-500 dark:text-white'>
+                  ({option.count})
+                </span>
               )}
             </button>
           ))}
@@ -81,8 +83,8 @@ function FilterBar({
             onClick={() => setShowLabelDropdown(!showLabelDropdown)}
             className={`flex items-center space-x-2 px-3 py-1.5 border rounded-md text-sm font-medium transition-colors duration-200 ${
               selectedLabels.length > 0
-                ? 'bg-blue-50 border-blue-300 text-blue-700'
-                : 'bg-white border-gray-300 text-gray-700 hover:bg-gray-50'
+                ? 'bg-blue-50 border-blue-300 text-blue-700 dark:text-white dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700'
+                : 'bg-white border-gray-300 text-gray-700 hover:bg-gray-50 dark:bg-gray-800 dark:border-gray-700 dark:text-white dark:hover:bg-gray-700'
             }`}
           >
             <span>
@@ -106,14 +108,16 @@ function FilterBar({
       </div>
 
       {selectedLabels.length > 0 && (
-        <div className='flex flex-wrap gap-2 mt-3'>
-          <span className='text-sm text-gray-600 mr-2'>Active filters:</span>
+        <div className='flex flex-wrap gap-2 mt-3 items-center'>
+          <span className='text-sm text-gray-600 mr-2 dark:text-gray-100'>
+            Active filters:
+          </span>
           {selectedLabels.map((labelName) => {
             const label = labels?.find((l) => l.name === labelName);
             return (
               <span
                 key={labelName}
-                className='inline-flex items-center px-2 py-1 rounded-full text-xs font-medium border bg-gray-50'
+                className='inline-flex items-center px-2 py-1 rounded-full text-xs font-medium border bg-gray-50 dark:bg-gray-700 dark:border-gray-600 dark:text-white'
               >
                 {label && (
                   <div
