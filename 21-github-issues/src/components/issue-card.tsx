@@ -58,11 +58,10 @@ function IssueCard({ issue }: IssueCardProps) {
                   {issue.labels.slice(0, 3).map((label) => (
                     <span
                       key={label.id}
-                      className='inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium border'
+                      className='inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium border text-gray-800 dark:text-gray-200'
                       style={{
-                        backgroundColor: `#${label.color}20`,
-                        borderColor: `#${label.color}60`,
-                        color: `#${label.color}`
+                        backgroundColor: `#${label.color}40`,
+                        borderColor: `#${label.color}60`
                       }}
                     >
                       {label.name}
