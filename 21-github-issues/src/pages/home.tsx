@@ -3,6 +3,7 @@ import { useIssues } from '@/hooks/useIssues';
 import IssueList from '@/components/issue-list';
 import FilterBar from '@/components/ui/filter-bar';
 import SearchBar from '@/components/ui/search-bar';
+import Pagination from '@/components/ui/pagination';
 import { IssueState, type IssueStateType } from '@/types';
 
 function Home() {
@@ -39,6 +40,7 @@ function Home() {
       <div className='bg-white rounded-lg p-4 border-2 dark:border border-gray-200 dark:bg-gray-800 dark:border-gray-700'>
         {filteredIssues ? <IssueList issues={filteredIssues} /> : <p>Loading...</p>}
       </div>
+      <Pagination />
     </>
   );
 }
